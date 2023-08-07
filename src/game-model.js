@@ -1250,7 +1250,7 @@ class GameModel {
     }
 }
 
-GameModel.sine9 = new Int32Array(1024);
+GameModel.sine9 = new Int32Array(512);
 GameModel.sine11 = new Int32Array(2048);
 
 GameModel.base64Alphabet = new Int32Array(256);
