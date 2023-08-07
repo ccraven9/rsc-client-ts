@@ -4719,7 +4719,7 @@ Scene.frustumMaxY = 0;
 Scene.frustumMinX = 0;
 Scene.frustumMinY = 0;
 Scene.frustumNearZ = 0;
-Scene.sin512Cache = new Int32Array(1024);
+Scene.sin512Cache = new Int32Array(512);
 Scene.sinCosCache = new Int32Array(2048);
 Scene.textureCountLoaded = new Long(0);
 

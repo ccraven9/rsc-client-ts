@@ -1670,7 +1670,7 @@ class Surface {
         let k1 = this.height2;
 
         if (!this.sinCosCache) {
-            this.sinCosCache = new Int32Array(1024);
+            this.sinCosCache = new Int32Array(512);
 
             for (let i = 0; i < 256; i++) {
                 this.sinCosCache[i] = (Math.sin(i * 0.02454369) * 32768) | 0;
