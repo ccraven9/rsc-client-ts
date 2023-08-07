@@ -603,8 +603,8 @@ class GameConnection extends GameShell {
     drawTextBox(top, bottom) {
         const graphics = this.getGraphics();
         const font = new Font('Helvetica', 1, 15);
-        const width = 512;
-        const height = 344;
+        const width = 1024; //512 - 1024
+        const height = 688; //344 - 688
 
         graphics.setColor(Color.black);
 

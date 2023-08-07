@@ -3,7 +3,7 @@ const Panel = require('../panel');
 const WordFilter = require('../word-filter');
 const colours = require('./_colours');
 
-const HBAR_WIDTH = 512;
+const HBAR_WIDTH = 1; //512
 
 const ALL_MAX_LENGTH = 80;
 const HISTORY_MAX_ENTRIES = 20;
@@ -11,6 +11,7 @@ const HISTORY_MAX_ENTRIES = 20;
 function createMessageTabPanel() {
     this.panelMessageTabs = new Panel(this.surface, 10);
 
+    //Dialog Input Y value
     let y = 269;
 
     if (this.options.mobile) {

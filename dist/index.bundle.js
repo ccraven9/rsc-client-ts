@@ -39,7 +39,9 @@ if (typeof window === 'undefined') {
 
     document.body.appendChild(fullscreen);
 
-    await mc.startApplication(512, 346, 'Runescape by Andrew Gower');
+    await mc.startApplication(1024, 692, 'Runescape by Andrew Gower');
+    //1024, 692
+    //512, 346
 })();
 
 },{"./src/mudclient":243}],2:[function(require,module,exports){
@@ -29901,36 +29903,53 @@ utils.intFromLE = intFromLE;
 arguments[4][41][0].apply(exports,arguments)
 },{"buffer":49,"dup":41}],131:[function(require,module,exports){
 module.exports={
-  "name": "elliptic",
-  "version": "6.5.4",
-  "description": "EC cryptography",
-  "main": "lib/elliptic.js",
-  "files": [
-    "lib"
+  "_args": [
+    [
+      "elliptic@6.5.4",
+      "C:\\Users\\ccrav\\Desktop\\RSC\\rsc-client"
+    ]
   ],
-  "scripts": {
-    "lint": "eslint lib test",
-    "lint:fix": "npm run lint -- --fix",
-    "unit": "istanbul test _mocha --reporter=spec test/index.js",
-    "test": "npm run lint && npm run unit",
-    "version": "grunt dist && git add dist/"
+  "_development": true,
+  "_from": "elliptic@6.5.4",
+  "_id": "elliptic@6.5.4",
+  "_inBundle": false,
+  "_integrity": "sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==",
+  "_location": "/elliptic",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "elliptic@6.5.4",
+    "name": "elliptic",
+    "escapedName": "elliptic",
+    "rawSpec": "6.5.4",
+    "saveSpec": null,
+    "fetchSpec": "6.5.4"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:indutny/elliptic"
-  },
-  "keywords": [
-    "EC",
-    "Elliptic",
-    "curve",
-    "Cryptography"
+  "_requiredBy": [
+    "/browserify-sign",
+    "/create-ecdh"
   ],
-  "author": "Fedor Indutny <fedor@indutny.com>",
-  "license": "MIT",
+  "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.5.4.tgz",
+  "_spec": "6.5.4",
+  "_where": "C:\\Users\\ccrav\\Desktop\\RSC\\rsc-client",
+  "author": {
+    "name": "Fedor Indutny",
+    "email": "fedor@indutny.com"
+  },
   "bugs": {
     "url": "https://github.com/indutny/elliptic/issues"
   },
-  "homepage": "https://github.com/indutny/elliptic",
+  "dependencies": {
+    "bn.js": "^4.11.9",
+    "brorand": "^1.1.0",
+    "hash.js": "^1.0.0",
+    "hmac-drbg": "^1.0.1",
+    "inherits": "^2.0.4",
+    "minimalistic-assert": "^1.0.1",
+    "minimalistic-crypto-utils": "^1.0.1"
+  },
+  "description": "EC cryptography",
   "devDependencies": {
     "brfs": "^2.0.2",
     "coveralls": "^3.1.0",
@@ -29946,15 +29965,31 @@ module.exports={
     "istanbul": "^0.4.5",
     "mocha": "^8.0.1"
   },
-  "dependencies": {
-    "bn.js": "^4.11.9",
-    "brorand": "^1.1.0",
-    "hash.js": "^1.0.0",
-    "hmac-drbg": "^1.0.1",
-    "inherits": "^2.0.4",
-    "minimalistic-assert": "^1.0.1",
-    "minimalistic-crypto-utils": "^1.0.1"
-  }
+  "files": [
+    "lib"
+  ],
+  "homepage": "https://github.com/indutny/elliptic",
+  "keywords": [
+    "EC",
+    "Elliptic",
+    "curve",
+    "Cryptography"
+  ],
+  "license": "MIT",
+  "main": "lib/elliptic.js",
+  "name": "elliptic",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/indutny/elliptic.git"
+  },
+  "scripts": {
+    "lint": "eslint lib test",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "npm run lint && npm run unit",
+    "unit": "istanbul test _mocha --reporter=spec test/index.js",
+    "version": "grunt dist && git add dist/"
+  },
+  "version": "6.5.4"
 }
 
 },{}],132:[function(require,module,exports){
@@ -38436,8 +38471,8 @@ class GameConnection extends GameShell {
     drawTextBox(top, bottom) {
         const graphics = this.getGraphics();
         const font = new Font('Helvetica', 1, 15);
-        const width = 512;
-        const height = 344;
+        const width = 1024; //512 - 1024
+        const height = 688; //344 - 688
 
         graphics.setColor(Color.black);
 
@@ -39215,7 +39250,7 @@ class GameModel {
         this.z2 = 0;
         this.key = -1;
         this.maxVerts = 0;
-        this.lightDiffuse = 512;
+        this.lightDiffuse = 1024;
         this.lightAmbience = 32;
         this.magic = 0;
         this.maxFaces = 0;
@@ -40440,7 +40475,7 @@ class GameModel {
     }
 }
 
-GameModel.sine9 = new Int32Array(512);
+GameModel.sine9 = new Int32Array(1024);
 GameModel.sine11 = new Int32Array(2048);
 
 GameModel.base64Alphabet = new Int32Array(256);
@@ -40567,8 +40602,8 @@ class GameShell {
         this.imageLogo = null;
         this.graphics = null;
 
-        this.appletWidth = 512;
-        this.appletHeight = 346;
+        this.appletWidth = 1024; //512 - 1024
+        this.appletHeight = 692; //346 - 692
         this.targetFPS = 20;
         this.maxDrawTime = 1000;
         this.loadingStep = 1;
@@ -40707,7 +40742,7 @@ class GameShell {
         this._canvas.addEventListener('keydown', this.keyPressed.bind(this));
         this._canvas.addEventListener('keyup', this.keyReleased.bind(this));
 
-        window.addEventListener('beforeunload', () => this.onClosing());
+        //window.addEventListener('beforeunload', () => this.onClosing());
 
         if (this.options.mobile) {
             this.toggleKeyboard = false;
@@ -42231,8 +42266,8 @@ class mudclient extends GameConnection {
         this.magicLoc = 128;
         this.errorLoadingMemory = false;
         this.fogOfWar = false;
-        this.gameWidth = 512;
-        this.gameHeight = 334;
+        this.gameWidth = 1024; //512 - 1024
+        this.gameHeight = 668; //334 - 668
         this.tradeConfirmItems = new Int32Array(14);
         this.tradeConfirmItemCount = new Int32Array(14);
         this.tradeRecipientName = '';
@@ -42342,6 +42377,8 @@ class mudclient extends GameConnection {
         this.objectModel = [];
         this.objectModel.length = OBJECTS_MAX;
         this.objectModel.fill(null);
+        this.rightClickMenuX = 0;
+        this.rightClickMenuY = 0;
 
         // message scrollback
         this.playerMsgHistory = [];
@@ -43435,15 +43472,19 @@ class mudclient extends GameConnection {
             return;
         }
 
-        if (
-            this.mouseX < this.menuX - 10 ||
-            this.mouseY < this.menuY - 10 ||
-            this.mouseX > this.menuX + this.menuWidth + 10 ||
-            this.mouseY > this.menuY + this.menuHeight + 10
-        ) {
+        //Closes the menu if your cursor drifts 30pixels out of the menu
+        const menuDriftAmount = 30;
+        const outsideMenuX = this.mouseX < this.menuX - menuDriftAmount;
+        const outsideMenuY = this.mouseY < this.menuY - menuDriftAmount;
+        const outsideMenuWidth = this.mouseX > this.menuX + this.menuWidth + menuDriftAmount;
+        const outsideMenuHeight = this.mouseY > this.menuY + this.menuHeight + menuDriftAmount;
+        
+        if (outsideMenuX || outsideMenuY || outsideMenuWidth || outsideMenuHeight) {
             this.showRightClickMenu = false;
             return;
         }
+
+       
 
         this.surface.drawBoxAlpha(
             this.menuX,
@@ -43455,6 +43496,7 @@ class mudclient extends GameConnection {
         );
 
         this.surface.drawString(
+            
             'Choose option',
             this.menuX + 2,
             this.menuY + 12,
@@ -44409,7 +44451,7 @@ class mudclient extends GameConnection {
         );
 
         this.surface.mudclientref = this;
-        this.surface.setBounds(0, 0, this.gameWidth, this.gameHeight + 12);
+        this.surface.setBounds(0, 0, 2000, 2000 + 12);
 
         Panel.drawBackgroundArrow = false;
         Panel.baseSpriteStart = this.spriteUtil;
@@ -45022,7 +45064,7 @@ class mudclient extends GameConnection {
             const g = this.getGraphics();
 
             g.setColor(Color.black);
-            g.fillRect(0, 0, 512, 356);
+            g.fillRect(0, 0, 1024, 356);
             g.setFont(new Font('Helvetica', 1, 16));
             g.setColor(Color.yellow);
 
@@ -45054,7 +45096,7 @@ class mudclient extends GameConnection {
             const g = this.getGraphics();
 
             g.setColor(Color.black);
-            g.fillRect(0, 0, 512, 356);
+            g.fillRect(0, 0, 1024, 356);
             g.setFont(new Font('Helvetica', 1, 20));
             g.setColor(Color.white);
             g.drawString('Error - unable to load game!', 50, 50);
@@ -45070,7 +45112,7 @@ class mudclient extends GameConnection {
             const g = this.getGraphics();
 
             g.setColor(Color.black);
-            g.fillRect(0, 0, 512, 356);
+            g.fillRect(0, 0, 1024, 356);
             g.setFont(new Font('Helvetica', 1, 20));
             g.setColor(Color.white);
             g.drawString('Error - out of memory!', 50, 50);
@@ -45601,18 +45643,22 @@ class mudclient extends GameConnection {
                     this.menuY = 0;
                 }
 
-                if (this.menuX + this.menuWidth > 510) {
-                    this.menuX = 510 - this.menuWidth;
-                }
+                // if (this.menuX + this.menuWidth > 510) {
+                    
+                //     this.menuX = 510 - this.menuWidth;
+                //     console.log('Logging MenuX', this.menuX);
+                // }
 
-                if (this.menuY + this.menuHeight > 315) {
-                    this.menuY = 315 - this.menuHeight;
-                }
+                // if (this.menuY + this.menuHeight > 315) {
+                //     this.menuY = 315 - this.menuHeight;
+                // }
 
                 this.mouseButtonClick = 0;
             }
         }
     }
+
+
 
     menuItemClick(i) {
         const menuX = this.menuItemX[i];
@@ -50388,7 +50434,7 @@ class Scene {
         this.mousePickedModels.length = this.mousePickedMax;
         this.mousePickedModels.fill(null);
         this.mousePickedFaces = new Int32Array(this.mousePickedMax);
-        this.width = 512;
+        this.width = 1024;
         this.clipX = 256;
         this.clipY = 192;
         this.baseX = 256;
@@ -55041,7 +55087,7 @@ Scene.frustumMaxY = 0;
 Scene.frustumMinX = 0;
 Scene.frustumMinY = 0;
 Scene.frustumNearZ = 0;
-Scene.sin512Cache = new Int32Array(512);
+Scene.sin512Cache = new Int32Array(1024);
 Scene.sinCosCache = new Int32Array(2048);
 Scene.textureCountLoaded = new Long(0);
 
@@ -56748,7 +56794,7 @@ class Surface {
         let k1 = this.height2;
 
         if (!this.sinCosCache) {
-            this.sinCosCache = new Int32Array(512);
+            this.sinCosCache = new Int32Array(1024);
 
             for (let i = 0; i < 256; i++) {
                 this.sinCosCache[i] = (Math.sin(i * 0.02454369) * 32768) | 0;
@@ -59305,7 +59351,7 @@ const Panel = require('../panel');
 const WordFilter = require('../word-filter');
 const colours = require('./_colours');
 
-const HBAR_WIDTH = 512;
+const HBAR_WIDTH = 1; //512
 
 const ALL_MAX_LENGTH = 80;
 const HISTORY_MAX_ENTRIES = 20;
@@ -59313,6 +59359,7 @@ const HISTORY_MAX_ENTRIES = 20;
 function createMessageTabPanel() {
     this.panelMessageTabs = new Panel(this.surface, 10);
 
+    //Dialog Input Y value
     let y = 269;
 
     if (this.options.mobile) {
@@ -60447,7 +60494,7 @@ function renderLoginScreenViewports() {
         this.surface.drawLineAlpha(0, i, 0, i, this.gameWidth, 8);
     }
 
-    this.surface.drawBox(0, 194, 512, 20, 0);
+    this.surface.drawBox(0, 194, 1024, 20, 0); //512
 
     for (let i = 6; i >= 1; i--) {
         this.surface.drawLineAlpha(0, i, 0, 194 - i, this.gameWidth, 8);

@@ -92,8 +92,8 @@ class GameShell {
         this.imageLogo = null;
         this.graphics = null;
 
-        this.appletWidth = 512;
-        this.appletHeight = 346;
+        this.appletWidth = 1024; //512 - 1024
+        this.appletHeight = 692; //346 - 692
         this.targetFPS = 20;
         this.maxDrawTime = 1000;
         this.loadingStep = 1;

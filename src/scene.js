@@ -66,7 +66,7 @@ class Scene {
         this.mousePickedModels.length = this.mousePickedMax;
         this.mousePickedModels.fill(null);
         this.mousePickedFaces = new Int32Array(this.mousePickedMax);
-        this.width = 512;
+        this.width = 1024; //512
         this.clipX = 256;
         this.clipY = 192;
         this.baseX = 256;
@@ -4719,7 +4719,7 @@ Scene.frustumMaxY = 0;
 Scene.frustumMinX = 0;
 Scene.frustumMinY = 0;
 Scene.frustumNearZ = 0;
-Scene.sin512Cache = new Int32Array(512);
+Scene.sin512Cache = new Int32Array(1024);
 Scene.sinCosCache = new Int32Array(2048);
 Scene.textureCountLoaded = new Long(0);
 
