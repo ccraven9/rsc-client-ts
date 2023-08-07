@@ -29906,7 +29906,7 @@ module.exports={
   "_args": [
     [
       "elliptic@6.5.4",
-      "C:\\Users\\ccrav\\Desktop\\RSC\\rsc-client"
+      "C:\\Users\\ccrav\\Desktop\\RSC\\rsc-client-ts"
     ]
   ],
   "_development": true,
@@ -29932,7 +29932,7 @@ module.exports={
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.5.4.tgz",
   "_spec": "6.5.4",
-  "_where": "C:\\Users\\ccrav\\Desktop\\RSC\\rsc-client",
+  "_where": "C:\\Users\\ccrav\\Desktop\\RSC\\rsc-client-ts",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -42377,8 +42377,6 @@ class mudclient extends GameConnection {
         this.objectModel = [];
         this.objectModel.length = OBJECTS_MAX;
         this.objectModel.fill(null);
-        this.rightClickMenuX = 0;
-        this.rightClickMenuY = 0;
 
         // message scrollback
         this.playerMsgHistory = [];
@@ -43484,8 +43482,6 @@ class mudclient extends GameConnection {
             return;
         }
 
-       
-
         this.surface.drawBoxAlpha(
             this.menuX,
             this.menuY,
@@ -43496,7 +43492,6 @@ class mudclient extends GameConnection {
         );
 
         this.surface.drawString(
-            
             'Choose option',
             this.menuX + 2,
             this.menuY + 12,
@@ -44451,7 +44446,7 @@ class mudclient extends GameConnection {
         );
 
         this.surface.mudclientref = this;
-        this.surface.setBounds(0, 0, 2000, 2000 + 12);
+        this.surface.setBounds(0, 0, this.gameWidth, this.gameHeight + 12);
 
         Panel.drawBackgroundArrow = false;
         Panel.baseSpriteStart = this.spriteUtil;
@@ -45064,7 +45059,7 @@ class mudclient extends GameConnection {
             const g = this.getGraphics();
 
             g.setColor(Color.black);
-            g.fillRect(0, 0, 1024, 356);
+            g.fillRect(0, 0, 1024, 356); //512
             g.setFont(new Font('Helvetica', 1, 16));
             g.setColor(Color.yellow);
 
@@ -45096,7 +45091,7 @@ class mudclient extends GameConnection {
             const g = this.getGraphics();
 
             g.setColor(Color.black);
-            g.fillRect(0, 0, 1024, 356);
+            g.fillRect(0, 0, 1024, 356); //512
             g.setFont(new Font('Helvetica', 1, 20));
             g.setColor(Color.white);
             g.drawString('Error - unable to load game!', 50, 50);
@@ -45112,7 +45107,7 @@ class mudclient extends GameConnection {
             const g = this.getGraphics();
 
             g.setColor(Color.black);
-            g.fillRect(0, 0, 1024, 356);
+            g.fillRect(0, 0, 1024, 356); //512
             g.setFont(new Font('Helvetica', 1, 20));
             g.setColor(Color.white);
             g.drawString('Error - out of memory!', 50, 50);
@@ -45657,8 +45652,6 @@ class mudclient extends GameConnection {
             }
         }
     }
-
-
 
     menuItemClick(i) {
         const menuX = this.menuItemX[i];
@@ -50434,7 +50427,7 @@ class Scene {
         this.mousePickedModels.length = this.mousePickedMax;
         this.mousePickedModels.fill(null);
         this.mousePickedFaces = new Int32Array(this.mousePickedMax);
-        this.width = 1024;
+        this.width = 1024; //512
         this.clipX = 256;
         this.clipY = 192;
         this.baseX = 256;
