@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2017",                                 
+    "outDir": "./built",
+    "module": "commonjs", 
+    "moduleResolution": "node",
+	  "sourceMap": true,    
+    "allowJs": true,                               
+    "esModuleInterop": true,                            
+    "forceConsistentCasingInFileNames": true,            
+    "strict": true,                                      
+    "skipDefaultLibCheck": true,                      
+    "skipLibCheck": true,
+    "typeRoots": ["./node_modules/@types", "./src/types"]                             
+  },
+  "include": ["./src/**/*",
+              "index.ts"],
+  "exclude": [
+    "./plugins/**/*",
+    "./typings/**/*",
+    "./built/**/*",
+    "./dist/**/*" 
+]
+}
