@@ -95,7 +95,7 @@ Ensure that wherever the client is hosted, it's able to access
 for its cache files.
 
 ## FAQ
-* what is the purpose of `| 0`? why not use `Math.floor()`?
+* What is the purpose of `| 0`? why not use `Math.floor()`?
 
   `number | 0` is an
   [asm.js](https://github.com/zbjornson/human-asmjs#11-type-declaration)
@@ -106,6 +106,10 @@ for its cache files.
   [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
   is an [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754); a
   [java double](https://docs.oracle.com/javase/7/docs/api/java/lang/Double.html)).
+
+* What needs to be done?
+
+    The current to do list can be checked here: [TODO List](todo.md)
 
 ## License
 Copyright 2021  2003Scape Team
