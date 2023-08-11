@@ -1,33 +1,32 @@
-# rsc-client
-a port of the
+# rsc-client-ts
+
+This project is a fork of [rsc-client](https://github.com/2003scape/rsc-client), with the overall goal of converting the project from Javascript to Typescript.
+
+Inspired by rsc-client, a port of the
 [runescape classic](https://classic.runescape.wiki/w/RuneScape_Classic) client
 ([*mudclient revision 204*](https://github.com/2003scape/mudclient204))
-from java to javascript.
-
-this client is designed to work with
+from Java to Javascript. This client is designed to work with
 [rsc-server](https://github.com/2003scape/rsc-server) and
 [RSCGo](https://github.com/spkaeros/RSCGo).
 
 ![](./screenshot.png?raw=true)
 
-## install
 
-    $ npm install @2003scape/rsc-client
+## Installation
+After cloning the project locally, run `npm i` or `npm install` to install developer dependencies. 
 
-## usage
-after making modifications to `./src/`, run `$ npm install` to install developer
-dependencies, then `$ npm run build-dev` to create a new bundle in `./dist/`.
+Run `npm run build-dev` to create a new bundle utilizing browserify. The new bundle will output to the `./dist` folder.
 
-the `./dist/` directory contains everything you need to use the client.
-run `$ npm start` to start a simple HTTP server at http://localhost:1337.
-you may put optional arguments into the hash of the URL:
+The `./dist/` directory contains everything you need to use the client, including the client cache located in the `/data204` folder.
+
+Run `npm start` to start a simple HTTP server at http://localhost:1337. Optional arguments can be passed into the hash of the URL: 
 
     http://localhost:1337/index.html#members,127.0.0.1,43595
 
-alternatively, you can manually invoke `mudclient` on your own canvas:
+<!-- Alternatively, you can manually invoke `mudclient` on your own canvas by adding it as a dependecy in your own project:
 
 ```javascript
-const mudclient = require('@2003scape/rsc-client');
+const mudclient = require('@2003scape/rsc-client-ts');
 
 const mc = new mudclient(document.getElementById('mudclient-canvas'));
 mc.members = false;
@@ -36,16 +35,16 @@ mc.threadSleep = 10;
 (async () => {
     await mc.startApplication(512, 346, 'Runescape by Andrew Gower');
 })();
-```
+``` -->
 
-if you don't want to host a separate websockets server, you can
+If you don't want to host a separate websockets server, you can
 pass a [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Worker/Worker)
 instance of rsc-server into the `.server` property instead.
 
 see https://github.com/2003scape/rsc-server#browser-usage
 
-## options
-features from earlier mudclients and/or inspired by modern third-party clients
+## Options
+Features from earlier mudclients and/or inspired by modern third-party clients
 with their default values:
 
 ```javascript
@@ -89,13 +88,13 @@ mc.options.retryLoginOnDisconnect = true;
 mc.options.mobile = false;
 ```
 
-## assets
-make sure that wherever you host it, it's able to access
+## Assets
+Ensure that wherever the client is hosted, it's able to access
 `./data204/` via
 [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)
 for its cache files.
 
-## faq
+## FAQ
 * what is the purpose of `| 0`? why not use `Math.floor()`?
 
   `number | 0` is an
@@ -108,7 +107,7 @@ for its cache files.
   is an [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754); a
   [java double](https://docs.oracle.com/javase/7/docs/api/java/lang/Double.html)).
 
-## license
+## License
 Copyright 2021  2003Scape Team
 
 This program is free software: you can redistribute it and/or modify it under
