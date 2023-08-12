@@ -1,6 +1,6 @@
 const Long = require('long');
 const Polygon = require('./polygon');
-const Scanline = require('./scanline');
+import { Scanline } from './scanline';
 
 const COLOUR_TRANSPARENT = 12345678;
 

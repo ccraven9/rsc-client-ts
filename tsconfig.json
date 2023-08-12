@@ -1,24 +1,30 @@
 {
   "compilerOptions": {
-    "target": "es2017",                                 
+    "target": "es2017",
     "outDir": "./built",
-    "module": "commonjs", 
+    "module": "commonjs",
     "moduleResolution": "node",
-	  "sourceMap": true,    
-    "allowJs": true,                               
-    "esModuleInterop": true,                            
-    "forceConsistentCasingInFileNames": true,            
-    "strict": true,                                      
-    "skipDefaultLibCheck": true,                      
+    "sourceMap": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "typeRoots": ["./node_modules/@types", "./src/types"]                             
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
   },
-  "include": ["./src/**/*",
-              "index.ts"],
+  "include": [
+    "./src/**/*",
+    "./src/**/*.json",
+    "index.js"
+  ],
   "exclude": [
-    "./plugins/**/*",
-    "./typings/**/*",
     "./built/**/*",
-    "./dist/**/*" 
-]
+    "./dist/**/*",
+    
+    "./node_modules"
+  ]
 }

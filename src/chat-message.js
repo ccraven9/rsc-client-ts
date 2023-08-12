@@ -199,7 +199,7 @@ ChatMessage.charMap = new Uint16Array(
         '#',
         '+',
         '=',
-        '\243',
+        '\\243',
         '$',
         '%',
         '"',
