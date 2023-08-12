@@ -1,5 +1,5 @@
 {
-  "name": "@2003scape/rsc-client",
+  "name": "rsc-client-ts",
   "version": "0.1.0",
   "description": "Runescape Classic webclient.",
   "main": "./index.js",
@@ -22,6 +22,12 @@
     "game"
   ],
   "author": "2003Scape Team",
+  "contributors": [
+    {
+      "name": "Carter Craven",
+      "url": "https://ccraven9.github.io/"
+    }
+  ],
   "license": "AGPL-3.0+",
   "bugs": {
     "url": "https://github.com/ccraven9/rsc-client-ts/issues"
