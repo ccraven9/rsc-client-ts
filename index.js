@@ -1,5 +1,5 @@
-// const mudclient = require('./src/mudclient');
-import mudclient from './src/mudclient'
+const mudclient = require('./src/mudclient');
+// import mudclient from './src/mudclient'
 
 if (typeof window === 'undefined') {
     throw new Error('rsc-client needs to run in a browser');
