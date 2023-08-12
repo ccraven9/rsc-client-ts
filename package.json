@@ -2,11 +2,12 @@
   "name": "@2003scape/rsc-client",
   "version": "1.1.0",
   "description": "runescape classic web client",
-  "main": "./src/mudclient.js",
+  "private": true,
   "scripts": {
     "build-dev": "browserify -t bulkify -t brfs index.js > dist/index.bundle.js",
     "build": "browserify -t bulkify -p tinyify index.js > dist/index.bundle.min.js",
-    "start": "st -p 1337 -nc -d dist"
+    "start": "st -p 1337 -nc -d dist",
+    "web": "npx webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -27,27 +28,33 @@
   },
   "homepage": "https://github.com/ccraven9/rsc-client-ts#readme",
   "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
     "@ledgerhq/compressjs": "^1.3.2",
     "alawmulaw": "^6.0.0",
+    "assert": "^2.0.0",
+    "babel-loader": "^9.1.3",
     "brfs": "^2.0.2",
-    "browserify": "^17.0.0",
     "buffer": "^6.0.3",
     "bulk-require": "^1.0.1",
-    "bulkify": "1.4.0",
+    "crypto-browserify": "^3.12.0",
     "eslint": "^7.30.0",
     "long": "^4.0.0",
     "ndarray": "^1.0.19",
+    "path": "^0.12.7",
     "pcm-player": "0.0.11",
     "rand-token": "^1.0.1",
     "sleep-promise": "^9.1.0",
     "st": "^3.0.0",
+    "stream-browserify": "^3.0.0",
     "tga-js": "^1.1.1",
-    "tinyify": "^3.0.0"
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   },
-  "browserify": {
-    "transform": [
-      "bulkify",
-      "brfs"
-    ]
+  "dependencies": {
+    "connect": "^3.7.0",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "os-browserify": "^0.3.0",
+    "serve-static": "^1.15.0"
   }
 }

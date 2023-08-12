@@ -7,6 +7,7 @@
  - [ ] Move JAG files to their own folder to be included in bundle.
  - [ ] Setup webpack Dev Server - so the project does not have to continually be built.
  - [ ] Developer Environment for easier development (Deployed Game Server and Data Server)
+ - [ ] Audit exisiting dependencies for newer versions/ deprecated libs.
 
 ## Long Term Goals
 
