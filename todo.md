@@ -10,6 +10,7 @@
  - [ ] Developer Environment for easier development (Deployed Game Server and Data Server)
  - [ ] Assign complexity score to each JS files on estimated complexity of converting it to TS.
  - [ ] Add general converting tips/guide markdown file.
+ - [ ] Add jsdoc lib.
 
 ## Long Term Goals
 

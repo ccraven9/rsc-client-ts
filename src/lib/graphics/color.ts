@@ -3,7 +3,13 @@ export class Color {
     g: number;
     b: number;
     a: number;
-    
+
+    /**
+     * TODO: The static props with all caps need to be checked if they're being utilized anywhere.
+     * Potetntailly replace lowercase usage throughout application with uppercase ones, to be
+     * consistent with coding conventions.
+    */
+   
     static white = new Color(255, 255, 255);
     static WHITE = Color.white;
     
