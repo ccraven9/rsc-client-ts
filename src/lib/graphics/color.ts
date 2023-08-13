@@ -50,6 +50,9 @@ export class Color {
         this.a = a;
     }
 
+    /**
+     * Returns a string contatining the R,G,B and Alpha of a Color
+     */
     toCanvasStyle(): string {
         return `rgba(${this.r},${this.g}, ${this.b}, ${this.a})`;
     }

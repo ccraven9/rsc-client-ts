@@ -10,6 +10,12 @@ export class Font {
         this.size = size;
     }
 
+
+    /**
+    * Returns the font properties for canvas text ( bold | italic | normal), size and name
+    * as a single string.
+    * @returns { string } Font properties string.
+    */
     toCanvasFont(): string {
         return `${this.getType()} ${this.size}px ${this.name}`;
     }
