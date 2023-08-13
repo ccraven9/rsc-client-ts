@@ -4,7 +4,7 @@
   "description": "Runescape Classic webclient.",
   "main": "./index.js",
   "scripts": {
-    "build": "tsc &&  npm run build-dev",
+    "build": "tsc && npm run build-dev",
     "build-dev": "browserify -t bulkify -t brfs built/index.js > dist/bundle.js",
     "build-prod": "browserify -t bulkify -p tinyify built/index.js > dist/bundle.min.js",
     "start": "st -p 1337 -nc -d dist"

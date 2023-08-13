@@ -332,7 +332,6 @@ module.exports = GameCharacter;
 },{"long":252}],6:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// const Color = require('./lib/graphics/color');
 const GameShell = require('./game-shell');
 const Long = require('long');
 const PacketStream = require('./packet-stream');
@@ -2231,7 +2230,6 @@ module.exports = GameModel;
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const BZLib = require('./bzlib');
-// const Color = require('./lib/graphics/color');
 const Socket = require('./lib/net/socket');
 const Surface = require('./surface');
 const TGA = require('tga-js');
@@ -2904,6 +2902,9 @@ class Color {
         this.b = b;
         this.a = a;
     }
+    /**
+     * Returns a string contatining the R,G,B and Alpha of a Color
+     */
     toCanvasStyle() {
         return `rgba(${this.r},${this.g}, ${this.b}, ${this.a})`;
     }
@@ -2946,6 +2947,11 @@ class Font {
         this.type = type;
         this.size = size;
     }
+    /**
+    * Returns the font properties for canvas text ( bold | italic | normal), size and name
+    * as a single string.
+    * @returns { string } Font properties string.
+    */
     toCanvasFont() {
         return `${this.getType()} ${this.size}px ${this.name}`;
     }
@@ -2977,7 +2983,7 @@ class Graphics {
         this.ctx = renderContext;
     }
     /**
-    * Specifies the color, gradient, or pattern to use for a cavnas shape and its outline.
+    * Specifies the color, gradient, or pattern to use for a cavnas shape fillStyle and strokeStyle.
     * @param  { function(string | CanvasGradient | CanvasPattern ):string } color - Color to be set.
     */
     setColor(color) {
@@ -2988,29 +2994,63 @@ class Graphics {
     * Draws a filled rectangle whose starting point is at (x, y)
     * and whose size is specified by width and height.
     * The fill style is determined by the current fillStyle attribute.
-    * @param  { number } x -  X coordinate.
-    * @param  { number } y -  Y coordinate.
+    * @param  { number } x -  The x-axis coordinate of the point at which to begin drawing the shape.
+    * @param  { number } y -  The y-axis coordinate of the point at which to begin drawing the shape.
     * @param  { number } width -  Rectangle width.
     * @param  { number } height - Rectangle Height.
     */
     fillRect(x, y, width, height) {
         this.ctx.fillRect(x, y, width, height);
     }
+    /**
+    * Draws a rectangle that is stroked (outlined) according to the current strokeStyle and other context settings.
+    * @param  { number } x -  The x-axis coordinate of the point at which to begin drawing the shape.
+    * @param  { number } y -  The y-axis coordinate of the point at which to begin drawing the shape.
+    * @param  { number } width -  Rectangle width.
+    * @param  { number } height - Rectangle Height.
+    */
     drawRect(x, y, width, height) {
         this.ctx.strokeRect(x, y, width, height);
     }
+    /**
+    * Specifies the current text style to use when drawing text.
+    * @param  { number } x -  X coordinate.
+    */
     setFont(font) {
         this.ctx.font = font.toCanvasFont();
     }
+    /**
+     * Draws a text string at the specified coordinates, filling the string's characters with the current fillStyle
+     * @param { string } s - A string specifying the text string to render into the context.
+     * @param { number } x - The x-axis coordinate of the point at which to begin drawing the text, in pixels.
+     * @param { number } y - The y-axis coordinate of the baseline on which to begin drawing the text, in pixels.
+     */
     drawString(s, x, y) {
         this.ctx.fillText(s, x, y);
     }
+    /**
+     * Returns width of passed string in pixels.
+     * @param { string } s - The text string to measure.
+     * @returns { number }  Text width.
+     */
     measureTextWidth(s) {
         return this.ctx.measureText(s).width;
     }
+    /**
+     * Paints data from the given ImageData object onto the canvas.
+     * @param image - An ImageData object containing the array of pixel values.
+     * @param x - Horizontal position (x coordinate) at which to place the image data in the destination canvas.
+     * @param y - Vertical position (y coordinate) at which to place the image data in the destination canvas.
+     */
     drawImage(image, x, y) {
         this.ctx.putImageData(image, x, y);
     }
+    /**
+     * Returns an ImageData object representing the underlying pixel data for a specified portion of the canvas.
+     * @param width - The width of the rectangle from which the ImageData will be extracted.
+     * @param height - The height of the rectangle from which the ImageData will be extracted.
+     * @returns An Image data object for the given width and height of the canvas.
+     */
     getImage(width, height) {
         return this.ctx.getImageData(0, 0, width, height);
     }
