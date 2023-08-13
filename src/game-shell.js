@@ -1,7 +1,4 @@
 const BZLib = require('./bzlib');
-const Color = require('./lib/graphics/color');
-const Font = require('./lib/graphics/font');
-const Graphics = require('./lib/graphics/graphics');
 const Socket = require('./lib/net/socket');
 const Surface = require('./surface');
 const TGA = require('tga-js');
@@ -9,6 +6,10 @@ const Utility = require('./utility');
 const keycodes = require('./lib/keycodes');
 const version = require('./version');
 const sleep = require('sleep-promise');
+
+import { Font } from './lib/graphics/font';
+import { Graphics } from './lib/graphics/graphics';
+import { Color } from './lib/graphics/color';
 
 const CHAR_MAP =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"\\243$%^&' +

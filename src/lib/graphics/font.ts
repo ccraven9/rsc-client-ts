@@ -1,15 +1,20 @@
-class Font {
-    constructor(name, type, size) {
+export class Font {
+    name: string;
+    type: number;
+    size: number;
+    static BOLD: number = 1;
+
+    constructor(name: string, type: number, size: number) {
         this.name = name;
         this.type = type;
         this.size = size;
     }
 
-    toCanvasFont() {
+    toCanvasFont(): string {
         return `${this.getType()} ${this.size}px ${this.name}`;
     }
 
-    getType() {
+    getType(): string {
         if (this.type === 1) {
             return 'bold';
         } else if (this.type === 2) {
@@ -19,8 +24,4 @@ class Font {
         return 'normal';
     }
 }
-
-Font.BOLD = 1;
-
-module.exports = Font;
 
