@@ -1,5 +1,3 @@
-const Color = require('./lib/graphics/color');
-const Font = require('./lib/graphics/font');
 const GameBuffer = require('./game-buffer');
 const GameCharacter = require('./game-character');
 const GameConnection = require('./game-connection');
@@ -18,6 +16,10 @@ const getPacketHandlers = require('./packet-handlers');
 const keycodes = require('./lib/keycodes');
 const clientOpcodes = require('./opcodes/client');
 const version = require('./version');
+
+import { Font } from './lib/graphics/font';
+import { Color } from './lib/graphics/color';
+
 
 const ZOOM_MIN = 450;
 const ZOOM_MAX = 1250;

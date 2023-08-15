@@ -1,11 +1,13 @@
-const Color = require('./lib/graphics/color');
-const Font = require('./lib/graphics/font');
 const GameShell = require('./game-shell');
 const Long = require('long');
 const PacketStream = require('./packet-stream');
 const Utility = require('./utility');
 const clientOpcodes = require('./opcodes/client');
 const sleep = require('sleep-promise');
+
+import { Font } from './lib/graphics/font';
+import { Color } from './lib/graphics/color';
+
 
 function fromCharArray(a) {
     return Array.from(a)

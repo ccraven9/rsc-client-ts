@@ -331,14 +331,15 @@ module.exports = GameCharacter;
 
 },{"long":252}],6:[function(require,module,exports){
 "use strict";
-const Color = require('./lib/graphics/color');
-const Font = require('./lib/graphics/font');
+Object.defineProperty(exports, "__esModule", { value: true });
 const GameShell = require('./game-shell');
 const Long = require('long');
 const PacketStream = require('./packet-stream');
 const Utility = require('./utility');
 const clientOpcodes = require('./opcodes/client');
 const sleep = require('sleep-promise');
+const font_1 = require("./lib/graphics/font");
+const color_1 = require("./lib/graphics/color");
 function fromCharArray(a) {
     return Array.from(a)
         .map((c) => String.fromCharCode(c))
@@ -687,12 +688,12 @@ class GameConnection extends GameShell {
     }
     drawTextBox(top, bottom) {
         const graphics = this.getGraphics();
-        const font = new Font('Helvetica', 1, 15);
+        const font = new font_1.Font('Helvetica', 1, 15);
         const width = 1024; //512 - 1024
         const height = 688; //344 - 688
-        graphics.setColor(Color.black);
+        graphics.setColor(color_1.Color.black);
         graphics.fillRect(((width / 2) | 0) - 140, ((height / 2) | 0) - 25, 280, 50);
-        graphics.setColor(Color.white);
+        graphics.setColor(color_1.Color.white);
         graphics.drawRect(((width / 2) | 0) - 140, ((height / 2) | 0) - 25, 280, 50);
         this.drawString(graphics, top, font, (width / 2) | 0, ((height / 2) | 0) - 10);
         this.drawString(graphics, bottom, font, (width / 2) | 0, ((height / 2) | 0) + 10);
@@ -2227,10 +2228,8 @@ module.exports = GameModel;
 
 },{"./scene":52,"./utility":83}],9:[function(require,module,exports){
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const BZLib = require('./bzlib');
-const Color = require('./lib/graphics/color');
-const Font = require('./lib/graphics/font');
-const Graphics = require('./lib/graphics/graphics');
 const Socket = require('./lib/net/socket');
 const Surface = require('./surface');
 const TGA = require('tga-js');
@@ -2238,6 +2237,9 @@ const Utility = require('./utility');
 const keycodes = require('./lib/keycodes');
 const version = require('./version');
 const sleep = require('sleep-promise');
+const font_1 = require("./lib/graphics/font");
+const graphics_1 = require("./lib/graphics/graphics");
+const color_1 = require("./lib/graphics/color");
 const CHAR_MAP = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"\\243$%^&' +
     "*()-_=+[{]};:'@#~,<.>/?\\| ";
 const FONTS = [
@@ -2277,7 +2279,7 @@ class GameShell {
         this._canvas.style.width = '100%';
         this._canvas.style.height = '100%';
         this._container.appendChild(this._canvas);
-        this._graphics = new Graphics(this._canvas);
+        this._graphics = new graphics_1.Graphics(this._canvas);
         this.options = {
             middleClickCamera: false,
             mouseWheel: false,
@@ -2314,9 +2316,9 @@ class GameShell {
         this.loadingStep = 1;
         this.hasRefererLogoNotUsed = false;
         this.loadingProgessText = 'Loading';
-        this.fontTimesRoman15 = new Font('Times New Roman', 0, 15);
-        this.fontHelvetica13b = new Font('Helvetica', Font.BOLD, 13);
-        this.fontHelvetica12 = new Font('Helvetica', 0, 12);
+        this.fontTimesRoman15 = new font_1.Font('Times New Roman', 0, 15);
+        this.fontHelvetica13b = new font_1.Font('Helvetica', font_1.Font.BOLD, 13);
+        this.fontHelvetica12 = new font_1.Font('Helvetica', 0, 12);
         this.keyLeft = false;
         this.keyRight = false;
         this.keyUp = false;
@@ -2759,7 +2761,7 @@ class GameShell {
         }
     }
     async loadJagex() {
-        this.graphics.setColor(Color.black);
+        this.graphics.setColor(color_1.Color.black);
         this.graphics.fillRect(0, 0, this.appletWidth, this.appletHeight);
         const jagexJag = await this.readDataFile('jagex.jag', 'Jagex library', 0);
         if (jagexJag) {
@@ -2777,7 +2779,7 @@ class GameShell {
     drawLoadingScreen(percent, text) {
         let x = ((this.appletWidth - 281) / 2) | 0;
         let y = ((this.appletHeight - 148) / 2) | 0;
-        this.graphics.setColor(Color.black);
+        this.graphics.setColor(color_1.Color.black);
         this.graphics.fillRect(0, 0, this.appletWidth, this.appletHeight);
         if (!this.hasRefererLogoNotUsed) {
             this.graphics.drawImage(this.imageLogo, x, y /*, this*/);
@@ -2786,15 +2788,15 @@ class GameShell {
         y += 90;
         this.loadingProgressPercent = percent;
         this.loadingProgessText = text;
-        this.graphics.setColor(new Color(132, 132, 132));
+        this.graphics.setColor(new color_1.Color(132, 132, 132));
         if (this.hasRefererLogoNotUsed) {
-            this.graphics.setColor(new Color(220, 0, 0));
+            this.graphics.setColor(new color_1.Color(220, 0, 0));
         }
         this.graphics.drawRect(x - 2, y - 2, 280, 23);
         this.graphics.fillRect(x, y, ((277 * percent) / 100) | 0, 20);
-        this.graphics.setColor(new Color(198, 198, 198));
+        this.graphics.setColor(new color_1.Color(198, 198, 198));
         if (this.hasRefererLogoNotUsed) {
-            this.graphics.setColor(new Color(255, 255, 255));
+            this.graphics.setColor(new color_1.Color(255, 255, 255));
         }
         this.drawString(this.graphics, text, this.fontTimesRoman15, x + 138, y + 10);
         if (!this.hasRefererLogoNotUsed) {
@@ -2802,13 +2804,13 @@ class GameShell {
             this.drawString(this.graphics, '\u00a92001-2002 Andrew Gower and Jagex Ltd', this.fontHelvetica13b, x + 138, y + 44);
         }
         else {
-            this.graphics.setColor(new Color(132, 132, 152));
+            this.graphics.setColor(new color_1.Color(132, 132, 152));
             this.drawString(this.graphics, '\u00a92001-2002 Andrew Gower and Jagex Ltd', this.fontHelvetica12, x + 138, this.appletHeight - 20);
         }
         // not sure where this would have been used. maybe to indicate a
         // special client?
         if (this.logoHeaderText) {
-            this.graphics.setColor(Color.white);
+            this.graphics.setColor(color_1.Color.white);
             this.drawString(this.graphics, this.logoHeaderText, this.fontHelvetica13b, x + 138, y - 120);
         }
     }
@@ -2817,17 +2819,17 @@ class GameShell {
         const y = (((this.appletHeight - 148) / 2) | 0) + 90;
         this.loadingProgressPercent = percent;
         this.loadingProgessText = text;
-        this.graphics.setColor(new Color(132, 132, 132));
+        this.graphics.setColor(new color_1.Color(132, 132, 132));
         if (this.hasRefererLogoNotUsed) {
-            this.graphics.setColor(new Color(220, 0, 0));
+            this.graphics.setColor(new color_1.Color(220, 0, 0));
         }
         const progressWidth = ((277 * percent) / 100) | 0;
         this.graphics.fillRect(x, y, progressWidth, 20);
-        this.graphics.setColor(Color.black);
+        this.graphics.setColor(color_1.Color.black);
         this.graphics.fillRect(x + progressWidth, y, 277 - progressWidth, 20);
-        this.graphics.setColor(new Color(198, 198, 198));
+        this.graphics.setColor(new color_1.Color(198, 198, 198));
         if (this.hasRefererLogoNotUsed) {
-            this.graphics.setColor(new Color(255, 255, 255));
+            this.graphics.setColor(new color_1.Color(255, 255, 255));
         }
         this.drawString(this.graphics, text, this.fontTimesRoman15, x + 138, y + 10);
     }
@@ -2891,6 +2893,8 @@ module.exports = GameShell;
 
 },{"./bzlib":2,"./lib/graphics/color":10,"./lib/graphics/font":11,"./lib/graphics/graphics":12,"./lib/keycodes":13,"./lib/net/socket":15,"./surface":54,"./utility":83,"./version":84,"sleep-promise":294,"tga-js":311}],10:[function(require,module,exports){
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Color = void 0;
 class Color {
     constructor(r, g, b, a = 255) {
         this.r = r;
@@ -2898,10 +2902,14 @@ class Color {
         this.b = b;
         this.a = a;
     }
+    /**
+     * Returns a string contatining the R,G,B and Alpha of a Color
+     */
     toCanvasStyle() {
         return `rgba(${this.r},${this.g}, ${this.b}, ${this.a})`;
     }
 }
+exports.Color = Color;
 Color.white = new Color(255, 255, 255);
 Color.WHITE = Color.white;
 Color.lightGray = new Color(192, 192, 192);
@@ -2928,16 +2936,22 @@ Color.cyan = new Color(0, 255, 255);
 Color.CYAN = Color.cyan;
 Color.blue = new Color(0, 0, 255);
 Color.BLUE = Color.blue;
-module.exports = Color;
 
 },{}],11:[function(require,module,exports){
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Font = void 0;
 class Font {
     constructor(name, type, size) {
         this.name = name;
         this.type = type;
         this.size = size;
     }
+    /**
+    * Returns the font properties for canvas text ( bold | italic | normal), size and name
+    * as a single string.
+    * @returns { string } Font properties string.
+    */
     toCanvasFont() {
         return `${this.getType()} ${this.size}px ${this.name}`;
     }
@@ -2951,44 +2965,97 @@ class Font {
         return 'normal';
     }
 }
+exports.Font = Font;
 Font.BOLD = 1;
-module.exports = Font;
 
 },{}],12:[function(require,module,exports){
 "use strict";
 // shims https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics.html
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Graphics = void 0;
 class Graphics {
     constructor(canvas) {
         this.canvas = canvas;
-        this.ctx = canvas.getContext('2d', { alpha: false });
+        const renderContext = this.canvas.getContext('2d', { alpha: false });
+        if (!renderContext || !(renderContext instanceof CanvasRenderingContext2D)) {
+            throw new Error('Failed to get 2D context');
+        }
+        this.ctx = renderContext;
     }
+    /**
+    * Specifies the color, gradient, or pattern to use for a cavnas shape fillStyle and strokeStyle.
+    * @param  { function(string | CanvasGradient | CanvasPattern ):string } color - Color to be set.
+    */
     setColor(color) {
         this.ctx.fillStyle = color.toCanvasStyle();
         this.ctx.strokeStyle = color.toCanvasStyle();
     }
+    /**
+    * Draws a filled rectangle whose starting point is at (x, y)
+    * and whose size is specified by width and height.
+    * The fill style is determined by the current fillStyle attribute.
+    * @param  { number } x -  The x-axis coordinate of the point at which to begin drawing the shape.
+    * @param  { number } y -  The y-axis coordinate of the point at which to begin drawing the shape.
+    * @param  { number } width -  Rectangle width.
+    * @param  { number } height - Rectangle Height.
+    */
     fillRect(x, y, width, height) {
         this.ctx.fillRect(x, y, width, height);
     }
+    /**
+    * Draws a rectangle that is stroked (outlined) according to the current strokeStyle and other context settings.
+    * @param  { number } x -  The x-axis coordinate of the point at which to begin drawing the shape.
+    * @param  { number } y -  The y-axis coordinate of the point at which to begin drawing the shape.
+    * @param  { number } width -  Rectangle width.
+    * @param  { number } height - Rectangle Height.
+    */
     drawRect(x, y, width, height) {
         this.ctx.strokeRect(x, y, width, height);
     }
+    /**
+    * Specifies the current text style to use when drawing text.
+    * @param  { number } x -  X coordinate.
+    */
     setFont(font) {
         this.ctx.font = font.toCanvasFont();
     }
+    /**
+     * Draws a text string at the specified coordinates, filling the string's characters with the current fillStyle
+     * @param { string } s - A string specifying the text string to render into the context.
+     * @param { number } x - The x-axis coordinate of the point at which to begin drawing the text, in pixels.
+     * @param { number } y - The y-axis coordinate of the baseline on which to begin drawing the text, in pixels.
+     */
     drawString(s, x, y) {
         this.ctx.fillText(s, x, y);
     }
+    /**
+     * Returns width of passed string in pixels.
+     * @param { string } s - The text string to measure.
+     * @returns { number }  Text width.
+     */
     measureTextWidth(s) {
         return this.ctx.measureText(s).width;
     }
+    /**
+     * Paints data from the given ImageData object onto the canvas.
+     * @param image - An ImageData object containing the array of pixel values.
+     * @param x - Horizontal position (x coordinate) at which to place the image data in the destination canvas.
+     * @param y - Vertical position (y coordinate) at which to place the image data in the destination canvas.
+     */
     drawImage(image, x, y) {
         this.ctx.putImageData(image, x, y);
     }
+    /**
+     * Returns an ImageData object representing the underlying pixel data for a specified portion of the canvas.
+     * @param width - The width of the rectangle from which the ImageData will be extracted.
+     * @param height - The height of the rectangle from which the ImageData will be extracted.
+     * @returns An Image data object for the given width and height of the canvas.
+     */
     getImage(width, height) {
         return this.ctx.getImageData(0, 0, width, height);
     }
 }
-module.exports = Graphics;
+exports.Graphics = Graphics;
 
 },{}],13:[function(require,module,exports){
 module.exports={
@@ -3371,8 +3438,7 @@ module.exports = WorkerSocket;
 
 },{"rand-token":280}],17:[function(require,module,exports){
 "use strict";
-const Color = require('./lib/graphics/color');
-const Font = require('./lib/graphics/font');
+Object.defineProperty(exports, "__esModule", { value: true });
 const GameBuffer = require('./game-buffer');
 const GameCharacter = require('./game-character');
 const GameConnection = require('./game-connection');
@@ -3391,6 +3457,8 @@ const getPacketHandlers = require('./packet-handlers');
 const keycodes = require('./lib/keycodes');
 const clientOpcodes = require('./opcodes/client');
 const version = require('./version');
+const font_1 = require("./lib/graphics/font");
+const color_1 = require("./lib/graphics/color");
 const ZOOM_MIN = 450;
 const ZOOM_MAX = 1250;
 const ZOOM_INDOORS = 550;
@@ -5871,18 +5939,18 @@ class mudclient extends GameConnection {
     draw() {
         if (this.errorLoadingData) {
             const g = this.getGraphics();
-            g.setColor(Color.black);
+            g.setColor(color_1.Color.black);
             g.fillRect(0, 0, 1024, 356); //512
-            g.setFont(new Font('Helvetica', 1, 16));
-            g.setColor(Color.yellow);
+            g.setFont(new font_1.Font('Helvetica', 1, 16));
+            g.setColor(color_1.Color.yellow);
             let y = 35;
             g.drawString('Sorry, an error has occured whilst loading RuneScape', 30, y);
             y += 50;
-            g.setColor(Color.white);
+            g.setColor(color_1.Color.white);
             g.drawString('To fix this try the following (in order):', 30, y);
             y += 50;
-            g.setColor(Color.white);
-            g.setFont(new Font('Helvetica', 1, 12));
+            g.setColor(color_1.Color.white);
+            g.setFont(new font_1.Font('Helvetica', 1, 12));
             g.drawString('1: Try closing ALL open web-browser windows, and reloading', 30, y);
             y += 30;
             g.drawString('2: Try clearing your web-browsers cache from tools->internet options', 30, y);
@@ -5897,10 +5965,10 @@ class mudclient extends GameConnection {
         }
         if (this.errorLoadingCodebase) {
             const g = this.getGraphics();
-            g.setColor(Color.black);
+            g.setColor(color_1.Color.black);
             g.fillRect(0, 0, 1024, 356); //512
-            g.setFont(new Font('Helvetica', 1, 20));
-            g.setColor(Color.white);
+            g.setFont(new font_1.Font('Helvetica', 1, 20));
+            g.setColor(color_1.Color.white);
             g.drawString('Error - unable to load game!', 50, 50);
             g.drawString('To play RuneScape make sure you play from', 50, 100);
             g.drawString('http://www.runescape.com', 50, 150);
@@ -5909,10 +5977,10 @@ class mudclient extends GameConnection {
         }
         if (this.errorLoadingMemory) {
             const g = this.getGraphics();
-            g.setColor(Color.black);
+            g.setColor(color_1.Color.black);
             g.fillRect(0, 0, 1024, 356); //512
-            g.setFont(new Font('Helvetica', 1, 20));
-            g.setColor(Color.white);
+            g.setFont(new font_1.Font('Helvetica', 1, 20));
+            g.setColor(color_1.Color.white);
             g.drawString('Error - out of memory!', 50, 50);
             g.drawString('Close ALL unnecessary programs', 50, 100);
             g.drawString('and windows before loading the game', 50, 150);
@@ -9947,7 +10015,6 @@ class Scanline {
     }
 }
 exports.Scanline = Scanline;
-// module.exports = Scanline;
 
 },{}],52:[function(require,module,exports){
 "use strict";

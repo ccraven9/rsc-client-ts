@@ -11,5 +11,3 @@ export class Scanline {
         this.endS = 0;  
     }
 }
-
-// module.exports = Scanline;
