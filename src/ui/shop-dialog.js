@@ -1,6 +1,8 @@
 const GameData = require('../game-data');
 const clientOpcodes = require('../opcodes/client');
-const colours = require('./_colours');
+// const colours = require('./_colours');
+import { COLOURS } from './colours'; 
+
 
 const COINS_ID = 10;
 
@@ -117,18 +119,18 @@ function drawDialogShop() {
         dialogY + 12,
         408,
         17,
-        colours.grey,
+        COLOURS.GREY,
         160
     );
 
-    this.surface.drawBoxAlpha(dialogX, dialogY + 29, 8, 170, colours.grey, 160);
+    this.surface.drawBoxAlpha(dialogX, dialogY + 29, 8, 170, COLOURS.GREY, 160);
 
     this.surface.drawBoxAlpha(
         dialogX + 399,
         dialogY + 29,
         9,
         170,
-        colours.grey,
+        COLOURS.GREY,
         160
     );
 
@@ -137,7 +139,7 @@ function drawDialogShop() {
         dialogY + 199,
         408,
         47,
-        colours.grey,
+        COLOURS.GREY,
         160
     );
 
@@ -146,10 +148,10 @@ function drawDialogShop() {
         dialogX + 1,
         dialogY + 10,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
-    let textColour = colours.white;
+    let textColour = COLOURS.WHITE;
 
     if (
         this.mouseX > dialogX + 320 &&
@@ -157,7 +159,7 @@ function drawDialogShop() {
         this.mouseX < dialogX + 408 &&
         this.mouseY < dialogY + 12
     ) {
-        textColour = colours.red;
+        textColour = COLOURS.RED;
     }
 
     this.surface.drawStringRight(
@@ -173,7 +175,7 @@ function drawDialogShop() {
         dialogX + 2,
         dialogY + 24,
         1,
-        colours.green
+        COLOURS.GREEN
     );
 
     this.surface.drawString(
@@ -181,7 +183,7 @@ function drawDialogShop() {
         dialogX + 135,
         dialogY + 24,
         1,
-        colours.cyan
+        COLOURS.CYAN
     );
 
     this.surface.drawString(
@@ -189,7 +191,7 @@ function drawDialogShop() {
         dialogX + 280,
         dialogY + 24,
         1,
-        colours.yellow
+        COLOURS.YELLOW
     );
 
     let itemIndex = 0;
@@ -205,7 +207,7 @@ function drawDialogShop() {
                     slotY,
                     49,
                     34,
-                    colours.red,
+                    COLOURS.RED,
                     160
                 );
             } else {
@@ -214,7 +216,7 @@ function drawDialogShop() {
                     slotY,
                     49,
                     34,
-                    colours.lightGrey2,
+                    COLOURS.LIGHTGREY2,
                     160
                 );
             }
@@ -240,7 +242,7 @@ function drawDialogShop() {
                     slotX + 1,
                     slotY + 10,
                     1,
-                    colours.green
+                    COLOURS.GREEN
                 );
 
                 this.surface.drawStringRight(
@@ -248,7 +250,7 @@ function drawDialogShop() {
                     slotX + 47,
                     slotY + 10,
                     1,
-                    colours.cyan
+                    COLOURS.CYAN
                 );
             }
 
@@ -264,7 +266,7 @@ function drawDialogShop() {
             dialogX + 204,
             dialogY + 214,
             3,
-            colours.yellow
+            COLOURS.YELLOW
         );
 
         return;
@@ -291,10 +293,10 @@ function drawDialogShop() {
                 dialogX + 2,
                 dialogY + 214,
                 1,
-                colours.yellow
+                COLOURS.YELLOW
             );
 
-            textColour = colours.white;
+            textColour = COLOURS.WHITE;
 
             if (
                 this.mouseX > dialogX + 298 &&
@@ -302,7 +304,7 @@ function drawDialogShop() {
                 this.mouseX < dialogX + 408 &&
                 this.mouseY <= dialogY + 215
             ) {
-                textColour = colours.red;
+                textColour = COLOURS.RED;
             }
 
             this.surface.drawStringRight(
@@ -318,7 +320,7 @@ function drawDialogShop() {
                 dialogX + 204,
                 dialogY + 214,
                 3,
-                colours.yellow
+                COLOURS.YELLOW
             );
         }
 
@@ -340,10 +342,10 @@ function drawDialogShop() {
                 dialogX + 405,
                 dialogY + 239,
                 1,
-                colours.yellow
+                COLOURS.YELLOW
             );
 
-            textColour = colours.white;
+            textColour = COLOURS.WHITE;
 
             if (
                 this.mouseX > dialogX + 2 &&
@@ -351,7 +353,7 @@ function drawDialogShop() {
                 this.mouseX < dialogX + 112 &&
                 this.mouseY <= dialogY + 240
             ) {
-                textColour = colours.red;
+                textColour = COLOURS.RED;
             }
 
             this.surface.drawString(
@@ -370,7 +372,7 @@ function drawDialogShop() {
             dialogX + 204,
             dialogY + 239,
             3,
-            colours.yellow
+            COLOURS.YELLOW
         );
     }
 }

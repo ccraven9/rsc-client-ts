@@ -1,5 +1,7 @@
 const clientOpcodes = require('../opcodes/client');
-const colours = require('./_colours');
+// const colours = require('./_colours');
+import { COLOURS } from './colours'; 
+
 
 function drawSleep() {
     this.surface.fadeToBlack();
@@ -10,7 +12,7 @@ function drawSleep() {
             (Math.random() * 80) | 0,
             (Math.random() * this.gameHeight) | 0,
             5,
-            (Math.random() * colours.white) | 0
+            (Math.random() * COLOURS.WHITE) | 0
         );
     }
 
@@ -20,7 +22,7 @@ function drawSleep() {
             this.gameWidth - ((Math.random() * 80) | 0),
             (Math.random() * this.gameHeight) | 0,
             5,
-            (Math.random() * colours.white) | 0
+            (Math.random() * COLOURS.WHITE) | 0
         );
     }
 
@@ -29,7 +31,7 @@ function drawSleep() {
         160,
         200,
         40,
-        colours.black
+        COLOURS.BLACK
     );
 
     this.surface.drawStringCenter(
@@ -37,7 +39,7 @@ function drawSleep() {
         (this.gameWidth / 2) | 0,
         50,
         7,
-        colours.yellow
+        COLOURS.YELLOW
     );
 
     this.surface.drawStringCenter(
@@ -45,7 +47,7 @@ function drawSleep() {
         (this.gameWidth / 2) | 0,
         90,
         7,
-        colours.yellow
+        COLOURS.YELLOW
     );
 
     this.surface.drawStringCenter(
@@ -53,7 +55,7 @@ function drawSleep() {
         (this.gameWidth / 2) | 0,
         140,
         5,
-        colours.white
+        COLOURS.WHITE
     );
 
     this.surface.drawStringCenter(
@@ -61,7 +63,7 @@ function drawSleep() {
         (this.gameWidth / 2) | 0,
         160,
         5,
-        colours.white
+        COLOURS.WHITE
     );
 
     this.surface.drawStringCenter(
@@ -69,7 +71,7 @@ function drawSleep() {
         (this.gameWidth / 2) | 0,
         180,
         5,
-        colours.cyan
+        COLOURS.CYAN
     );
 
     if (this.sleepingStatusText === null) {
@@ -84,7 +86,7 @@ function drawSleep() {
             (this.gameWidth / 2) | 0,
             260,
             5,
-            colours.red
+            COLOURS.RED
         );
     }
 
@@ -93,7 +95,7 @@ function drawSleep() {
         229,
         257,
         42,
-        colours.white
+        COLOURS.WHITE
     );
 
     this.drawChatMessageTabs();
@@ -103,7 +105,7 @@ function drawSleep() {
         (this.gameWidth / 2) | 0,
         290,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     this.surface.drawStringCenter(
@@ -113,7 +115,7 @@ function drawSleep() {
         (this.gameWidth / 2) | 0,
         305,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     this.surface.draw(this.graphics, 0, 0);

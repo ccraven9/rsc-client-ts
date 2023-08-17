@@ -1,4 +1,6 @@
-const colours = require('./_colours');
+// const colours = require('./_colours');
+import { COLOURS } from './colours'; 
+
 
 const WIDTH = 400;
 
@@ -15,7 +17,7 @@ function drawDialogServerMessage() {
         167 - ((height / 2) | 0),
         WIDTH,
         height,
-        colours.black
+        COLOURS.BLACK
     );
 
     this.surface.drawBoxEdge(
@@ -23,7 +25,7 @@ function drawDialogServerMessage() {
         167 - ((height / 2) | 0),
         WIDTH,
         height,
-        colours.white
+        COLOURS.WHITE
     );
 
     this.surface.drawParagraph(
@@ -31,12 +33,12 @@ function drawDialogServerMessage() {
         256,
         167 - ((height / 2) | 0) + 20,
         1,
-        colours.white,
+        COLOURS.WHITE,
         WIDTH - 40
     );
 
     const offsetY = 157 + ((height / 2) | 0);
-    let textColour = colours.white;
+    let textColour = COLOURS.WHITE;
 
     if (
         this.mouseY > offsetY - 12 &&
@@ -44,7 +46,7 @@ function drawDialogServerMessage() {
         this.mouseX > 106 &&
         this.mouseX < 406
     ) {
-        textColour = colours.red;
+        textColour = COLOURS.RED;
     }
 
     this.surface.drawStringCenter(
@@ -56,7 +58,7 @@ function drawDialogServerMessage() {
     );
 
     if (this.mouseButtonClick === 1) {
-        if (textColour === colours.red) {
+        if (textColour === COLOURS.RED) {
             this.showDialogServerMessage = false;
         }
 

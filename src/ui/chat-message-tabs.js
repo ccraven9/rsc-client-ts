@@ -2,7 +2,7 @@ const ChatMessage = require('../chat-message');
 const Panel = require('../panel');
 const WordFilter = require('../word-filter');
 // const colours = require('./_colours');
-import { COLOURS } from './colours'
+import { COLOURS } from './colours';
 
 const HBAR_WIDTH = 1; //512
 
