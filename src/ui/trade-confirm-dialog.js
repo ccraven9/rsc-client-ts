@@ -1,7 +1,9 @@
 const GameData = require('../game-data');
 const Utility = require('../utility');
 const clientOpcodes = require('../opcodes/client');
-const colours = require('./_colours');
+// const colours = require('./_colours');
+import { COLOURS } from './colours';
+
 
 const DIALOG_X = 22;
 const DIALOG_Y = 36;
@@ -14,7 +16,7 @@ function drawDialogTradeConfirm() {
         DIALOG_Y + 16,
         468,
         246,
-        colours.grey,
+        COLOURS.GREY,
         160
     );
 
@@ -24,7 +26,7 @@ function drawDialogTradeConfirm() {
         DIALOG_X + 234,
         DIALOG_Y + 12,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     this.surface.drawStringCenter(
@@ -32,7 +34,7 @@ function drawDialogTradeConfirm() {
         DIALOG_X + 117,
         DIALOG_Y + 30,
         1,
-        colours.yellow
+        COLOURS.YELLOW
     );
 
     for (let i = 0; i < this.tradeConfirmItemsCount; i++) {
@@ -49,7 +51,7 @@ function drawDialogTradeConfirm() {
             DIALOG_X + 117,
             DIALOG_Y + 42 + i * 12,
             1,
-            colours.white
+            COLOURS.WHITE
         );
     }
 
@@ -59,7 +61,7 @@ function drawDialogTradeConfirm() {
             DIALOG_X + 117,
             DIALOG_Y + 42,
             1,
-            colours.white
+            COLOURS.WHITE
         );
     }
 
@@ -68,7 +70,7 @@ function drawDialogTradeConfirm() {
         DIALOG_X + 351,
         DIALOG_Y + 30,
         1,
-        colours.yellow
+        COLOURS.YELLOW
     );
 
     for (let i = 0; i < this.tradeRecipientConfirmItemsCount; i++) {
@@ -87,7 +89,7 @@ function drawDialogTradeConfirm() {
             DIALOG_X + 351,
             DIALOG_Y + 42 + i * 12,
             1,
-            colours.white
+            COLOURS.WHITE
         );
     }
 
@@ -97,7 +99,7 @@ function drawDialogTradeConfirm() {
             DIALOG_X + 351,
             DIALOG_Y + 42,
             1,
-            colours.white
+            COLOURS.WHITE
         );
     }
 
@@ -106,7 +108,7 @@ function drawDialogTradeConfirm() {
         DIALOG_X + 234,
         DIALOG_Y + 200,
         4,
-        colours.cyan
+        COLOURS.CYAN
     );
 
     this.surface.drawStringCenter(
@@ -114,7 +116,7 @@ function drawDialogTradeConfirm() {
         DIALOG_X + 234,
         DIALOG_Y + 215,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     this.surface.drawStringCenter(
@@ -122,7 +124,7 @@ function drawDialogTradeConfirm() {
         DIALOG_X + 234,
         DIALOG_Y + 230,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     if (!this.tradeConfirmAccepted) {
@@ -143,7 +145,7 @@ function drawDialogTradeConfirm() {
             DIALOG_X + 234,
             DIALOG_Y + 250,
             1,
-            colours.yellow
+            COLOURS.YELLOW
         );
     }
 

@@ -1,5 +1,6 @@
 const Utility = require('../utility');
-const colours = require('./_colours');
+// const colours = require('./_colours');
+import { COLOURS } from './colours';
 
 const MENU_WIDTH = 245;
 
@@ -35,11 +36,11 @@ function drawUiTabSocial(noMenus) {
         uiY + TAB_HEIGHT,
         WIDTH,
         HEIGHT - TAB_HEIGHT,
-        colours.lightGrey,
+        COLOURS.LIGHTGREY,
         128
     );
 
-    this.surface.drawLineHoriz(uiX, uiY + HEIGHT - 16, WIDTH, colours.black);
+    this.surface.drawLineHoriz(uiX, uiY + HEIGHT - 16, WIDTH, COLOURS.BLACK);
 
     this.surface.drawTabs(
         uiX,
@@ -102,7 +103,7 @@ function drawUiTabSocial(noMenus) {
                     uiX + HALF_WIDTH,
                     uiY + 35,
                     1,
-                    colours.white
+                    COLOURS.WHITE
                 );
             } else if (this.friendListOnline[friendIndex] === 255) {
                 this.surface.drawStringCenter(
@@ -110,7 +111,7 @@ function drawUiTabSocial(noMenus) {
                     uiX + HALF_WIDTH,
                     uiY + 35,
                     1,
-                    colours.white
+                    COLOURS.WHITE
                 );
             } else if (this.friendListOnline[friendIndex] > 0) {
                 if (this.friendListOnline[friendIndex] < 200) {
@@ -120,7 +121,7 @@ function drawUiTabSocial(noMenus) {
                         uiX + HALF_WIDTH,
                         uiY + 35,
                         1,
-                        colours.white
+                        COLOURS.WHITE
                     );
                 } else {
                     this.surface.drawStringCenter(
@@ -129,7 +130,7 @@ function drawUiTabSocial(noMenus) {
                         uiX + HALF_WIDTH,
                         uiY + 35,
                         1,
-                        colours.white
+                        COLOURS.WHITE
                     );
                 }
             } else {
@@ -138,7 +139,7 @@ function drawUiTabSocial(noMenus) {
                     uiX + HALF_WIDTH,
                     uiY + 35,
                     1,
-                    colours.white
+                    COLOURS.WHITE
                 );
             }
         } else {
@@ -147,11 +148,11 @@ function drawUiTabSocial(noMenus) {
                 uiX + HALF_WIDTH,
                 uiY + 35,
                 1,
-                colours.white
+                COLOURS.WHITE
             );
         }
 
-        let textColour = colours.black;
+        let textColour = COLOURS.BLACK;
 
         if (
             this.mouseX > uiX &&
@@ -159,9 +160,9 @@ function drawUiTabSocial(noMenus) {
             this.mouseY > uiY + HEIGHT - 16 &&
             this.mouseY < uiY + HEIGHT
         ) {
-            textColour = colours.yellow;
+            textColour = COLOURS.YELLOW;
         } else {
-            textColour = colours.white;
+            textColour = COLOURS.WHITE;
         }
 
         this.surface.drawStringCenter(
@@ -188,7 +189,7 @@ function drawUiTabSocial(noMenus) {
                     uiX + HALF_WIDTH,
                     uiY + 35,
                     1,
-                    colours.white
+                    COLOURS.WHITE
                 );
             }
         } else {
@@ -197,11 +198,11 @@ function drawUiTabSocial(noMenus) {
                 uiX + HALF_WIDTH,
                 uiY + 35,
                 1,
-                colours.white
+                COLOURS.WHITE
             );
         }
 
-        let textColour = colours.black;
+        let textColour = COLOURS.BLACK;
 
         if (
             this.mouseX > uiX &&
@@ -209,9 +210,9 @@ function drawUiTabSocial(noMenus) {
             this.mouseY > uiY + HEIGHT - 16 &&
             this.mouseY < uiY + HEIGHT
         ) {
-            textColour = colours.yellow;
+            textColour = COLOURS.YELLOW;
         } else {
-            textColour = colours.white;
+            textColour = COLOURS.WHITE;
         }
 
         this.surface.drawStringCenter(
