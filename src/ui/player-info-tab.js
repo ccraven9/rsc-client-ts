@@ -1,6 +1,5 @@
 import { COLOURS } from './colours'; 
 
-
 const MENU_WIDTH = 245;
 
 const WIDTH = 196;

@@ -3,7 +3,6 @@ const Utility = require('../utility');
 const clientOpcodes = require('../opcodes/client');
 import { COLOURS } from './colours';
 
-
 const DIALOG_X = 22;
 const DIALOG_Y = 36;
 

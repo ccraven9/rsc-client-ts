@@ -1,6 +1,5 @@
 import { COLOURS } from './colours';
 
-
 const WIDTH = 400;
 
 function drawDialogWelcome() {

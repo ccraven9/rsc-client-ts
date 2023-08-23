@@ -2,7 +2,6 @@ const GameData = require('../game-data');
 const clientOpcodes = require('../opcodes/client');
 import { COLOURS } from './colours'; 
 
-
 const COINS_ID = 10;
 
 function drawDialogShop() {

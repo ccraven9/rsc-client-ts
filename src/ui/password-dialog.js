@@ -1,6 +1,5 @@
 import { COLOURS } from './colours'; 
 
-
 const DIALOG_X = 106;
 const DIALOG_Y = 150;
 const HEIGHT = 60;

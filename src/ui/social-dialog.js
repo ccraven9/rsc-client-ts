@@ -5,7 +5,6 @@ const Utility = require('../utility');
 const WordFilter = require('../word-filter');
 import { COLOURS } from './colours'; 
 
-
 function drawDialogSocialInput() {
     if (this.mouseButtonClick !== 0) {
         this.mouseButtonClick = 0;

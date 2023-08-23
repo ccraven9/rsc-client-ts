@@ -1,6 +1,5 @@
 import { COLOURS } from './colours';
 
-
 function drawDialogWildWarn() {
     let y = 97;
 

@@ -1,6 +1,7 @@
 const clientOpcodes = require('../opcodes/client');
 import { COLOURS } from './colours'; 
 
+//TODO: compare this grey with the grey in constants and see if they're equivalent
 const GREY = 0xbebebe;
 
 const BUTTON_HEIGHT = 20;

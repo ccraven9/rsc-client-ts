@@ -1,7 +1,6 @@
 const clientOpcodes = require('../opcodes/client');
 import { COLOURS } from './colours'; 
 
-
 function drawOptionMenu() {
     const fontSize = this.options.mobile ? 5 : 1;
     const fontHeight = this.options.mobile ? 18 : 12;

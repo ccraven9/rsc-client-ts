@@ -1,7 +1,6 @@
 const clientOpcodes = require('../opcodes/client');
 import { COLOURS } from './colours'; 
 
-
 function drawSleep() {
     this.surface.fadeToBlack();
 
