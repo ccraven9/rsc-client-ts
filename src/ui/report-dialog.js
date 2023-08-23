@@ -1,6 +1,7 @@
 const Utility = require('../utility');
 const clientOpcodes = require('../opcodes/client');
-const colours = require('./_colours');
+import { COLOURS } from './colours'; 
+
 
 const DIALOG_X = 56;
 const DIALOG_Y = 35;
@@ -78,8 +79,8 @@ function drawDialogReportAbuse() {
         }
     }
 
-    this.surface.drawBox(DIALOG_X, DIALOG_Y, WIDTH, HEIGHT, colours.black);
-    this.surface.drawBoxEdge(DIALOG_X, DIALOG_Y, WIDTH, HEIGHT, colours.white);
+    this.surface.drawBox(DIALOG_X, DIALOG_Y, WIDTH, HEIGHT, COLOURS.BLACK);
+    this.surface.drawBoxEdge(DIALOG_X, DIALOG_Y, WIDTH, HEIGHT, COLOURS.WHITE);
 
     y = 50;
 
@@ -88,7 +89,7 @@ function drawDialogReportAbuse() {
         256,
         y,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += LINE_BREAK;
@@ -98,7 +99,7 @@ function drawDialogReportAbuse() {
         256,
         y,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += LINE_BREAK;
@@ -108,7 +109,7 @@ function drawDialogReportAbuse() {
         256,
         y,
         1,
-        colours.orange
+        COLOURS.ORANGE
     );
 
     y += 25;
@@ -118,7 +119,7 @@ function drawDialogReportAbuse() {
         256,
         y,
         1,
-        colours.yellow
+        COLOURS.YELLOW
     );
 
     y += LINE_BREAK;
@@ -128,20 +129,20 @@ function drawDialogReportAbuse() {
         256,
         y,
         1,
-        colours.yellow
+        COLOURS.YELLOW
     );
 
     y += LINE_BREAK;
 
     for (let i = 1; i < RULES.length + 1; i += 1) {
-        let textColour = colours.black;
+        let textColour = COLOURS.BLACK;
 
         // draw the box that highlights the string
         if (this.reportAbuseOffence === i) {
-            this.surface.drawBoxEdge(66, y - 12, 380, 15, colours.white);
-            textColour = colours.orange;
+            this.surface.drawBoxEdge(66, y - 12, 380, 15, COLOURS.WHITE);
+            textColour = COLOURS.ORANGE;
         } else {
-            textColour = colours.white;
+            textColour = COLOURS.WHITE;
         }
 
         const rule = RULES[i - 1];
@@ -151,7 +152,7 @@ function drawDialogReportAbuse() {
 
     y += LINE_BREAK;
 
-    let textColour = colours.white;
+    let textColour = COLOURS.WHITE;
 
     if (
         this.mouseX > 196 &&
@@ -159,7 +160,7 @@ function drawDialogReportAbuse() {
         this.mouseY > y - 15 &&
         this.mouseY < y + 5
     ) {
-        textColour = colours.yellow;
+        textColour = COLOURS.YELLOW;
     }
 
     this.surface.drawStringCenter(
@@ -197,7 +198,7 @@ function drawDialogReportAbuseInput() {
         INPUT_DIALOG_Y,
         WIDTH,
         INPUT_HEIGHT,
-        colours.black
+        COLOURS.BLACK
     );
 
     this.surface.drawBoxEdge(
@@ -205,7 +206,7 @@ function drawDialogReportAbuseInput() {
         INPUT_DIALOG_Y,
         WIDTH,
         INPUT_HEIGHT,
-        colours.white
+        COLOURS.WHITE
     );
 
     let y = INPUT_DIALOG_Y + 30;
@@ -215,7 +216,7 @@ function drawDialogReportAbuseInput() {
         256,
         y,
         1,
-        colours.yellow
+        COLOURS.YELLOW
     );
 
     y += 18;
@@ -225,17 +226,17 @@ function drawDialogReportAbuseInput() {
         256,
         y,
         4,
-        colours.white
+        COLOURS.WHITE
     );
 
     if (this.moderatorLevel > 0) {
         y = INPUT_DIALOG_Y + 77;
 
-        let textColour = colours.white;
+        let textColour = COLOURS.WHITE;
         let toggleText = 'OFF';
 
         if (this.reportAbuseMute) {
-            textColour = colours.orange;
+            textColour = COLOURS.ORANGE;
             toggleText = 'ON';
         }
 
@@ -261,7 +262,7 @@ function drawDialogReportAbuseInput() {
 
     y = 222;
 
-    let textColour = colours.white;
+    let textColour = COLOURS.WHITE;
 
     if (
         this.mouseX > 196 &&
@@ -269,7 +270,7 @@ function drawDialogReportAbuseInput() {
         this.mouseY > y - 13 &&
         this.mouseY < y + 2
     ) {
-        textColour = colours.yellow;
+        textColour = COLOURS.YELLOW;
 
         if (this.mouseButtonClick === 1) {
             this.mouseButtonClick = 0;

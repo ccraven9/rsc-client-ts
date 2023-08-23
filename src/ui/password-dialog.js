@@ -1,4 +1,5 @@
-const colours = require('./_colours');
+import { COLOURS } from './colours'; 
+
 
 const DIALOG_X = 106;
 const DIALOG_Y = 150;
@@ -21,8 +22,8 @@ function drawDialogChangePassword() {
         }
     }
 
-    this.surface.drawBox(DIALOG_X, DIALOG_Y, WIDTH, HEIGHT, colours.black);
-    this.surface.drawBoxEdge(DIALOG_X, DIALOG_Y, WIDTH, HEIGHT, colours.white);
+    this.surface.drawBox(DIALOG_X, DIALOG_Y, WIDTH, HEIGHT, COLOURS.BLACK);
+    this.surface.drawBoxEdge(DIALOG_X, DIALOG_Y, WIDTH, HEIGHT, COLOURS.WHITE);
 
     let y = DIALOG_Y + 22;
     let passwordInput = '';
@@ -33,7 +34,7 @@ function drawDialogChangePassword() {
             256,
             y,
             4,
-            colours.white
+            COLOURS.WHITE
         );
 
         y += LINE_BREAK;
@@ -44,7 +45,7 @@ function drawDialogChangePassword() {
             passwordInput = 'X' + passwordInput;
         }
 
-        this.surface.drawStringCenter(passwordInput, 256, y, 4, colours.white);
+        this.surface.drawStringCenter(passwordInput, 256, y, 4, COLOURS.WHITE);
 
         if (this.inputTextFinal.length > 0) {
             this.changePasswordOld = this.inputTextFinal;
@@ -59,7 +60,7 @@ function drawDialogChangePassword() {
             256,
             y,
             4,
-            colours.white
+            COLOURS.WHITE
         );
 
         y += LINE_BREAK;
@@ -70,7 +71,7 @@ function drawDialogChangePassword() {
             passwordInput = 'X' + passwordInput;
         }
 
-        this.surface.drawStringCenter(passwordInput, 256, y, 4, colours.white);
+        this.surface.drawStringCenter(passwordInput, 256, y, 4, COLOURS.WHITE);
 
         if (this.inputTextFinal.length > 0) {
             this.changePasswordNew = this.inputTextFinal;
@@ -91,7 +92,7 @@ function drawDialogChangePassword() {
             256,
             y,
             4,
-            colours.white
+            COLOURS.WHITE
         );
 
         y += LINE_BREAK;
@@ -102,7 +103,7 @@ function drawDialogChangePassword() {
             passwordInput = 'X' + passwordInput;
         }
 
-        this.surface.drawStringCenter(passwordInput, 256, y, 4, colours.white);
+        this.surface.drawStringCenter(passwordInput, 256, y, 4, COLOURS.WHITE);
 
         if (this.inputTextFinal.length > 0) {
             if (
@@ -127,7 +128,7 @@ function drawDialogChangePassword() {
                 256,
                 y,
                 4,
-                colours.white
+                COLOURS.WHITE
             );
 
             y += LINE_BREAK;
@@ -137,7 +138,7 @@ function drawDialogChangePassword() {
                 256,
                 y,
                 4,
-                colours.white
+                COLOURS.WHITE
             );
 
             return;
@@ -149,7 +150,7 @@ function drawDialogChangePassword() {
                 256,
                 y,
                 4,
-                colours.white
+                COLOURS.WHITE
             );
 
             y += LINE_BREAK;
@@ -159,7 +160,7 @@ function drawDialogChangePassword() {
                 256,
                 y,
                 4,
-                colours.white
+                COLOURS.WHITE
             );
 
             return;
@@ -171,7 +172,7 @@ function drawDialogChangePassword() {
                 256,
                 y,
                 4,
-                colours.white
+                COLOURS.WHITE
             );
 
             y += LINE_BREAK;
@@ -181,7 +182,7 @@ function drawDialogChangePassword() {
                 256,
                 y,
                 4,
-                colours.white
+                COLOURS.WHITE
             );
         }
     }

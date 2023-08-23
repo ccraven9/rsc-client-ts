@@ -1,5 +1,6 @@
 const clientOpcodes = require('../opcodes/client');
-const colours = require('./_colours');
+import { COLOURS } from './colours'; 
+
 
 const MENU_WIDTH = 245;
 
@@ -27,25 +28,25 @@ function drawUiTabOptions(noMenus) {
     this.uiOpenWidth = WIDTH;
     this.uiOpenHeight = HEIGHT;
 
-    this.surface.drawBoxAlpha(uiX, uiY, WIDTH, 65, colours.darkGrey, 160);
+    this.surface.drawBoxAlpha(uiX, uiY, WIDTH, 65, COLOURS.DARKGREY, 160);
 
     this.surface.drawBoxAlpha(
         uiX,
         uiY + 65,
         WIDTH,
         65,
-        colours.lightGrey3,
+        COLOURS.LIGHTGREY3,
         160
     );
 
-    this.surface.drawBoxAlpha(uiX, uiY + 130, WIDTH, 95, colours.darkGrey, 160);
+    this.surface.drawBoxAlpha(uiX, uiY + 130, WIDTH, 95, COLOURS.DARKGREY, 160);
 
     this.surface.drawBoxAlpha(
         uiX,
         uiY + 225,
         WIDTH,
         40,
-        colours.lightGrey3,
+        COLOURS.LIGHTGREY3,
         160
     );
 
@@ -57,7 +58,7 @@ function drawUiTabOptions(noMenus) {
         x,
         y,
         1,
-        colours.black
+        COLOURS.BLACK
     );
 
     y += LINE_BREAK;
@@ -68,7 +69,7 @@ function drawUiTabOptions(noMenus) {
         x,
         y,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += LINE_BREAK;
@@ -82,7 +83,7 @@ function drawUiTabOptions(noMenus) {
         x,
         y,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += LINE_BREAK;
@@ -94,7 +95,7 @@ function drawUiTabOptions(noMenus) {
             x,
             y,
             1,
-            colours.white
+            COLOURS.WHITE
         );
     }
 
@@ -107,7 +108,7 @@ function drawUiTabOptions(noMenus) {
 
         y += LINE_BREAK;
 
-        let textColour = colours.white;
+        let textColour = COLOURS.WHITE;
 
         if (
             this.mouseX > x &&
@@ -115,14 +116,14 @@ function drawUiTabOptions(noMenus) {
             this.mouseY > y - 12 &&
             this.mouseY < y + 4
         ) {
-            textColour = colours.yellow;
+            textColour = COLOURS.YELLOW;
         }
 
         this.surface.drawString('Change password', x, y, 1, textColour);
 
         y += LINE_BREAK;
 
-        textColour = colours.white;
+        textColour = COLOURS.WHITE;
 
         if (
             this.mouseX > x &&
@@ -130,7 +131,7 @@ function drawUiTabOptions(noMenus) {
             this.mouseY > y - 12 &&
             this.mouseY < y + 4
         ) {
-            textColour = colours.yellow;
+            textColour = COLOURS.YELLOW;
         }
 
         this.surface.drawString(
@@ -148,7 +149,7 @@ function drawUiTabOptions(noMenus) {
             x,
             y,
             0,
-            colours.white
+            COLOURS.WHITE
         );
 
         y += LINE_BREAK;
@@ -158,7 +159,7 @@ function drawUiTabOptions(noMenus) {
             x,
             y,
             0,
-            colours.white
+            COLOURS.WHITE
         );
 
         y += LINE_BREAK;
@@ -168,7 +169,7 @@ function drawUiTabOptions(noMenus) {
             x,
             y,
             0,
-            colours.white
+            COLOURS.WHITE
         );
 
         y += LINE_BREAK;
@@ -179,7 +180,7 @@ function drawUiTabOptions(noMenus) {
                 x,
                 y,
                 0,
-                colours.white
+                COLOURS.WHITE
             );
         } else if (this.referID === 1) {
             this.surface.drawString(
@@ -187,7 +188,7 @@ function drawUiTabOptions(noMenus) {
                 x,
                 y,
                 0,
-                colours.white
+                COLOURS.WHITE
             );
         } else {
             this.surface.drawString(
@@ -195,7 +196,7 @@ function drawUiTabOptions(noMenus) {
                 x,
                 y,
                 0,
-                colours.white
+                COLOURS.WHITE
             );
         }
 
@@ -207,7 +208,7 @@ function drawUiTabOptions(noMenus) {
         uiX + 3,
         y,
         1,
-        colours.black
+        COLOURS.BLACK
     );
 
     y += LINE_BREAK;
@@ -217,7 +218,7 @@ function drawUiTabOptions(noMenus) {
         uiX + 3,
         y,
         1,
-        colours.black
+        COLOURS.BLACK
     );
 
     y += LINE_BREAK;
@@ -228,7 +229,7 @@ function drawUiTabOptions(noMenus) {
         uiX + 3,
         y,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += LINE_BREAK;
@@ -239,7 +240,7 @@ function drawUiTabOptions(noMenus) {
         uiX + 3,
         y,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += LINE_BREAK;
@@ -250,7 +251,7 @@ function drawUiTabOptions(noMenus) {
         uiX + 3,
         y,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += LINE_BREAK;
@@ -262,7 +263,7 @@ function drawUiTabOptions(noMenus) {
             uiX + 3,
             y,
             1,
-            colours.white
+            COLOURS.WHITE
         );
     }
 
@@ -273,12 +274,12 @@ function drawUiTabOptions(noMenus) {
         x,
         y,
         1,
-        colours.black
+        COLOURS.BLACK
     );
 
     y += LINE_BREAK;
 
-    let textColour = colours.white;
+    let textColour = COLOURS.WHITE;
 
     if (
         this.mouseX > x &&
@@ -286,7 +287,7 @@ function drawUiTabOptions(noMenus) {
         this.mouseY > y - 12 &&
         this.mouseY < y + 4
     ) {
-        textColour = colours.yellow;
+        textColour = COLOURS.YELLOW;
     }
 
     this.surface.drawString(

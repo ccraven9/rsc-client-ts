@@ -1,6 +1,6 @@
 const GameData = require('../game-data');
 const clientOpcodes = require('../opcodes/client');
-const colours = require('./_colours');
+import { COLOURS } from './colours'
 
 const WIDTH = 408;
 const HEIGHT = 334;
@@ -295,44 +295,44 @@ function drawDialogBank() {
     const y = ((this.gameHeight / 2) | 0) - ((HEIGHT / 2) | 0);
 
     this.surface.drawBox(x, y, 408, 12, 192);
-    this.surface.drawBoxAlpha(x, y + 12, 408, 17, colours.grey, 160);
-    this.surface.drawBoxAlpha(x, y + 29, 8, 204, colours.grey, 160);
-    this.surface.drawBoxAlpha(x + 399, y + 29, 9, 204, colours.grey, 160);
-    this.surface.drawBoxAlpha(x, y + 233, 408, 47, colours.grey, 160);
-    this.surface.drawString('Bank', x + 1, y + 10, 1, colours.white);
+    this.surface.drawBoxAlpha(x, y + 12, 408, 17, COLOURS.GREY, 160);
+    this.surface.drawBoxAlpha(x, y + 29, 8, 204, COLOURS.GREY, 160);
+    this.surface.drawBoxAlpha(x + 399, y + 29, 9, 204, COLOURS.GREY, 160);
+    this.surface.drawBoxAlpha(x, y + 233, 408, 47, COLOURS.GREY, 160);
+    this.surface.drawString('Bank', x + 1, y + 10, 1, COLOURS.WHITE);
 
     // TODO drawPages
 
     let offsetX = 50;
 
     if (this.bankItemCount > ITEMS_PER_PAGE) {
-        let textColour = colours.white;
+        let textColour = COLOURS.WHITE;
 
         if (this.bankActivePage === 0) {
-            textColour = colours.red;
+            textColour = COLOURS.RED;
         } else if (
             this.mouseX > x + offsetX &&
             this.mouseY >= y &&
             this.mouseX < x + offsetX + 65 &&
             this.mouseY < y + 12
         ) {
-            textColour = colours.yellow;
+            textColour = COLOURS.YELLOW;
         }
 
         this.surface.drawString('<page 1>', x + offsetX, y + 10, 1, textColour);
 
         offsetX += 65;
-        textColour = colours.white;
+        textColour = COLOURS.WHITE;
 
         if (this.bankActivePage === 1) {
-            textColour = colours.red;
+            textColour = COLOURS.RED;
         } else if (
             this.mouseX > x + offsetX &&
             this.mouseY >= y &&
             this.mouseX < x + offsetX + 65 &&
             this.mouseY < y + 12
         ) {
-            textColour = colours.yellow;
+            textColour = COLOURS.YELLOW;
         }
 
         this.surface.drawString('<page 2>', x + offsetX, y + 10, 1, textColour);
@@ -340,17 +340,17 @@ function drawDialogBank() {
     }
 
     if (this.bankItemCount > ITEMS_PER_PAGE * 2) {
-        let textColour = colours.white;
+        let textColour = COLOURS.WHITE;
 
         if (this.bankActivePage === 2) {
-            textColour = colours.red;
+            textColour = COLOURS.RED;
         } else if (
             this.mouseX > x + offsetX &&
             this.mouseY >= y &&
             this.mouseX < x + offsetX + 65 &&
             this.mouseY < y + 12
         ) {
-            textColour = colours.yellow;
+            textColour = COLOURS.YELLOW;
         }
 
         this.surface.drawString('<page 3>', x + offsetX, y + 10, 1, textColour);
@@ -358,24 +358,24 @@ function drawDialogBank() {
     }
 
     if (this.bankItemCount > ITEMS_PER_PAGE * 3) {
-        let textColour = colours.white;
+        let textColour = COLOURS.WHITE;
 
         if (this.bankActivePage === 3) {
-            textColour = colours.red;
+            textColour = COLOURS.RED;
         } else if (
             this.mouseX > x + offsetX &&
             this.mouseY >= y &&
             this.mouseX < x + offsetX + 65 &&
             this.mouseY < y + 12
         ) {
-            textColour = colours.yellow;
+            textColour = COLOURS.YELLOW;
         }
 
         this.surface.drawString('<page 4>', x + offsetX, y + 10, 1, textColour);
         offsetX += 65;
     }
 
-    let textColour = colours.white;
+    let textColour = COLOURS.WHITE;
 
     if (
         this.mouseX > x + 320 &&
@@ -383,7 +383,7 @@ function drawDialogBank() {
         this.mouseX < x + 408 &&
         this.mouseY < y + 12
     ) {
-        textColour = colours.red;
+        textColour = COLOURS.RED;
     }
 
     this.surface.drawStringRight(
@@ -399,7 +399,7 @@ function drawDialogBank() {
         x + 7,
         y + 24,
         1,
-        colours.green
+        COLOURS.GREEN
     );
 
     this.surface.drawString(
@@ -407,7 +407,7 @@ function drawDialogBank() {
         x + 289,
         y + 24,
         1,
-        colours.cyan
+        COLOURS.CYAN
     );
 
     let selectedIndex = this.bankActivePage * ITEMS_PER_PAGE;
@@ -423,7 +423,7 @@ function drawDialogBank() {
                     slotY,
                     49,
                     34,
-                    colours.red,
+                    COLOURS.RED,
                     160
                 );
             } else {
@@ -432,7 +432,7 @@ function drawDialogBank() {
                     slotY,
                     49,
                     34,
-                    colours.lightGrey2,
+                    COLOURS.LIGHTGREY2,
                     160
                 );
             }
@@ -461,7 +461,7 @@ function drawDialogBank() {
                     slotX + 1,
                     slotY + 10,
                     1,
-                    colours.green
+                    COLOURS.GREEN
                 );
 
                 this.surface.drawStringRight(
@@ -471,7 +471,7 @@ function drawDialogBank() {
                     slotX + 47,
                     slotY + 29,
                     1,
-                    colours.cyan
+                    COLOURS.CYAN
                 );
             }
 
@@ -487,7 +487,7 @@ function drawDialogBank() {
             x + 204,
             y + 248,
             3,
-            colours.yellow
+            COLOURS.YELLOW
         );
 
         return;
@@ -514,10 +514,10 @@ function drawDialogBank() {
                 x + 2,
                 y + 248,
                 1,
-                colours.white
+                COLOURS.WHITE
             );
 
-            textColour = colours.white;
+            textColour = COLOURS.WHITE;
 
             if (
                 this.mouseX >= x + 220 &&
@@ -525,13 +525,13 @@ function drawDialogBank() {
                 this.mouseX < x + 250 &&
                 this.mouseY <= y + 249
             ) {
-                textColour = colours.red;
+                textColour = COLOURS.RED;
             }
 
             this.surface.drawString('One', x + 222, y + 248, 1, textColour);
 
             if (itemCount >= 5) {
-                textColour = colours.white;
+                textColour = COLOURS.WHITE;
 
                 if (
                     this.mouseX >= x + 250 &&
@@ -539,7 +539,7 @@ function drawDialogBank() {
                     this.mouseX < x + 280 &&
                     this.mouseY <= y + 249
                 ) {
-                    textColour = colours.red;
+                    textColour = COLOURS.RED;
                 }
 
                 this.surface.drawString(
@@ -552,7 +552,7 @@ function drawDialogBank() {
             }
 
             if (itemCount >= 25) {
-                textColour = colours.white;
+                textColour = COLOURS.WHITE;
 
                 if (
                     this.mouseX >= x + 280 &&
@@ -560,14 +560,14 @@ function drawDialogBank() {
                     this.mouseX < x + 305 &&
                     this.mouseY <= y + 249
                 ) {
-                    textColour = colours.red;
+                    textColour = COLOURS.RED;
                 }
 
                 this.surface.drawString('25', x + 282, y + 248, 1, textColour);
             }
 
             if (itemCount >= 100) {
-                textColour = colours.white;
+                textColour = COLOURS.WHITE;
 
                 if (
                     this.mouseX >= x + 305 &&
@@ -575,14 +575,14 @@ function drawDialogBank() {
                     this.mouseX < x + 335 &&
                     this.mouseY <= y + 249
                 ) {
-                    textColour = colours.red;
+                    textColour = COLOURS.RED;
                 }
 
                 this.surface.drawString('100', x + 307, y + 248, 1, textColour);
             }
 
             if (itemCount >= 500) {
-                textColour = colours.white;
+                textColour = COLOURS.WHITE;
 
                 if (
                     this.mouseX >= x + 335 &&
@@ -590,14 +590,14 @@ function drawDialogBank() {
                     this.mouseX < x + 368 &&
                     this.mouseY <= y + 249
                 ) {
-                    textColour = colours.red;
+                    textColour = COLOURS.RED;
                 }
 
                 this.surface.drawString('500', x + 337, y + 248, 1, textColour);
             }
 
             if (itemCount >= 2500) {
-                textColour = colours.white;
+                textColour = COLOURS.WHITE;
 
                 if (
                     this.mouseX >= x + 370 &&
@@ -605,7 +605,7 @@ function drawDialogBank() {
                     this.mouseX < x + 400 &&
                     this.mouseY <= y + 249
                 ) {
-                    textColour = colours.red;
+                    textColour = COLOURS.RED;
                 }
 
                 this.surface.drawString(
@@ -624,10 +624,10 @@ function drawDialogBank() {
                 x + 2,
                 y + 273,
                 1,
-                colours.white
+                COLOURS.WHITE
             );
 
-            textColour = colours.white;
+            textColour = COLOURS.WHITE;
 
             if (
                 this.mouseX >= x + 220 &&
@@ -635,13 +635,13 @@ function drawDialogBank() {
                 this.mouseX < x + 250 &&
                 this.mouseY <= y + 274
             ) {
-                textColour = colours.red;
+                textColour = COLOURS.RED;
             }
 
             this.surface.drawString('One', x + 222, y + 273, 1, textColour);
 
             if (this.getInventoryCount(itemType) >= 5) {
-                textColour = colours.white;
+                textColour = COLOURS.WHITE;
 
                 if (
                     this.mouseX >= x + 250 &&
@@ -649,7 +649,7 @@ function drawDialogBank() {
                     this.mouseX < x + 280 &&
                     this.mouseY <= y + 274
                 ) {
-                    textColour = colours.red;
+                    textColour = COLOURS.RED;
                 }
 
                 this.surface.drawString(
@@ -662,7 +662,7 @@ function drawDialogBank() {
             }
 
             if (this.getInventoryCount(itemType) >= 25) {
-                textColour = colours.white;
+                textColour = COLOURS.WHITE;
 
                 if (
                     this.mouseX >= x + 280 &&
@@ -670,14 +670,14 @@ function drawDialogBank() {
                     this.mouseX < x + 305 &&
                     this.mouseY <= y + 274
                 ) {
-                    textColour = colours.red;
+                    textColour = COLOURS.RED;
                 }
 
                 this.surface.drawString('25', x + 282, y + 273, 1, textColour);
             }
 
             if (this.getInventoryCount(itemType) >= 100) {
-                textColour = colours.white;
+                textColour = COLOURS.WHITE;
 
                 if (
                     this.mouseX >= x + 305 &&
@@ -685,14 +685,14 @@ function drawDialogBank() {
                     this.mouseX < x + 335 &&
                     this.mouseY <= y + 274
                 ) {
-                    textColour = colours.red;
+                    textColour = COLOURS.RED;
                 }
 
                 this.surface.drawString('100', x + 307, y + 273, 1, textColour);
             }
 
             if (this.getInventoryCount(itemType) >= 500) {
-                textColour = colours.white;
+                textColour = COLOURS.WHITE;
 
                 if (
                     this.mouseX >= x + 335 &&
@@ -700,14 +700,14 @@ function drawDialogBank() {
                     this.mouseX < x + 368 &&
                     this.mouseY <= y + 274
                 ) {
-                    textColour = colours.red;
+                    textColour = COLOURS.RED;
                 }
 
                 this.surface.drawString('500', x + 337, y + 273, 1, textColour);
             }
 
             if (this.getInventoryCount(itemType) >= 2500) {
-                textColour = colours.white;
+                textColour = COLOURS.WHITE;
 
                 if (
                     this.mouseX >= x + 370 &&
@@ -715,7 +715,7 @@ function drawDialogBank() {
                     this.mouseX < x + 400 &&
                     this.mouseY <= y + 274
                 ) {
-                    textColour = colours.red;
+                    textColour = COLOURS.RED;
                 }
 
                 this.surface.drawString(

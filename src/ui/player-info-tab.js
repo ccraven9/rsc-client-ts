@@ -1,4 +1,5 @@
-const colours = require('./_colours');
+import { COLOURS } from './colours'; 
+
 
 const MENU_WIDTH = 245;
 
@@ -163,11 +164,11 @@ function drawUiTabPlayerInfo(noMenus) {
         uiY + TAB_HEIGHT,
         WIDTH,
         height - TAB_HEIGHT,
-        colours.lightGrey,
+        COLOURS.LIGHTGREY,
         128
     );
 
-    this.surface.drawLineHoriz(uiX, uiY + TAB_HEIGHT, WIDTH, colours.black);
+    this.surface.drawLineHoriz(uiX, uiY + TAB_HEIGHT, WIDTH, COLOURS.BLACK);
 
     this.surface.drawTabs(
         uiX,
@@ -184,7 +185,7 @@ function drawUiTabPlayerInfo(noMenus) {
         let selectedSkill = -1;
         let totalExperience = 0;
 
-        this.surface.drawString('Skills', uiX + 5, y, 3, colours.yellow);
+        this.surface.drawString('Skills', uiX + 5, y, 3, COLOURS.YELLOW);
 
         y += 13;
 
@@ -194,7 +195,7 @@ function drawUiTabPlayerInfo(noMenus) {
             totalExperience += this.playerExperience[i + 9];
 
             // left column
-            let textColour = colours.white;
+            let textColour = COLOURS.WHITE;
 
             if (
                 this.mouseX > uiX + 3 &&
@@ -202,7 +203,7 @@ function drawUiTabPlayerInfo(noMenus) {
                 this.mouseY < y + 2 &&
                 this.mouseX < uiX + 90
             ) {
-                textColour = colours.red;
+                textColour = COLOURS.RED;
                 selectedSkill = i;
             }
 
@@ -216,7 +217,7 @@ function drawUiTabPlayerInfo(noMenus) {
             );
 
             // right column
-            textColour = colours.white;
+            textColour = COLOURS.WHITE;
 
             if (
                 this.mouseX >= uiX + 90 &&
@@ -224,7 +225,7 @@ function drawUiTabPlayerInfo(noMenus) {
                 this.mouseY < y - 13 + 2 &&
                 this.mouseX < uiX + 196
             ) {
-                textColour = colours.red;
+                textColour = COLOURS.RED;
                 selectedSkill = i + 9;
             }
 
@@ -246,7 +247,7 @@ function drawUiTabPlayerInfo(noMenus) {
             uiX + HALF_WIDTH - 5,
             y - 13,
             1,
-            colours.white
+            COLOURS.WHITE
         );
 
         y += LINE_BREAK;
@@ -256,7 +257,7 @@ function drawUiTabPlayerInfo(noMenus) {
             uiX + 5,
             y - 13,
             1,
-            colours.white
+            COLOURS.WHITE
         );
 
         y += 8;
@@ -266,7 +267,7 @@ function drawUiTabPlayerInfo(noMenus) {
             uiX + 5,
             y,
             3,
-            colours.yellow
+            COLOURS.YELLOW
         );
 
         y += LINE_BREAK;
@@ -278,7 +279,7 @@ function drawUiTabPlayerInfo(noMenus) {
                 uiX + 5,
                 y,
                 1,
-                colours.white
+                COLOURS.WHITE
             );
 
             if (i < 2) {
@@ -288,7 +289,7 @@ function drawUiTabPlayerInfo(noMenus) {
                     uiX + HALF_WIDTH + 25,
                     y,
                     1,
-                    colours.white
+                    COLOURS.WHITE
                 );
             }
 
@@ -297,7 +298,7 @@ function drawUiTabPlayerInfo(noMenus) {
 
         y += 6;
 
-        this.surface.drawLineHoriz(uiX, y - 15, WIDTH, colours.black);
+        this.surface.drawLineHoriz(uiX, y - 15, WIDTH, COLOURS.BLACK);
 
         if (selectedSkill !== -1) {
             this.surface.drawString(
@@ -305,7 +306,7 @@ function drawUiTabPlayerInfo(noMenus) {
                 uiX + 5,
                 y,
                 1,
-                colours.yellow
+                COLOURS.YELLOW
             );
 
             y += LINE_BREAK;
@@ -327,7 +328,7 @@ function drawUiTabPlayerInfo(noMenus) {
                 uiX + 5,
                 y,
                 1,
-                colours.white
+                COLOURS.WHITE
             );
 
             y += LINE_BREAK;
@@ -337,7 +338,7 @@ function drawUiTabPlayerInfo(noMenus) {
                 uiX + 5,
                 y,
                 1,
-                colours.white
+                COLOURS.WHITE
             );
 
             if (this.options.remainingExperience) {
@@ -348,7 +349,7 @@ function drawUiTabPlayerInfo(noMenus) {
                     uiX + 5,
                     y,
                     1,
-                    colours.white
+                    COLOURS.WHITE
                 );
             }
         } else {
@@ -357,7 +358,7 @@ function drawUiTabPlayerInfo(noMenus) {
                 uiX + 5,
                 y,
                 1,
-                colours.yellow
+                COLOURS.YELLOW
             );
 
             y += LINE_BREAK;
@@ -373,7 +374,7 @@ function drawUiTabPlayerInfo(noMenus) {
                 uiX + 5,
                 y,
                 1,
-                colours.white
+                COLOURS.WHITE
             );
 
             y += LINE_BREAK;
@@ -384,7 +385,7 @@ function drawUiTabPlayerInfo(noMenus) {
                     uiX + 5,
                     y,
                     1,
-                    colours.white
+                    COLOURS.WHITE
                 );
 
                 y += LINE_BREAK;
@@ -395,7 +396,7 @@ function drawUiTabPlayerInfo(noMenus) {
                 uiX + 5,
                 y,
                 1,
-                colours.white
+                COLOURS.WHITE
             );
 
             y += LINE_BREAK;

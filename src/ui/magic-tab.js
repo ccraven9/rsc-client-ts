@@ -1,6 +1,6 @@
 const GameData = require('../game-data');
 const clientOpcodes = require('../opcodes/client');
-const colours = require('./_colours');
+import { COLOURS } from './colours'; 
 
 const MENU_WIDTH = 245;
 
@@ -36,11 +36,11 @@ function drawUiTabMagic(noMenus) {
         uiY + TAB_HEIGHT,
         WIDTH,
         HEIGHT - TAB_HEIGHT,
-        colours.lightGrey,
+        COLOURS.LIGHTGREY,
         128
     );
 
-    this.surface.drawLineHoriz(uiX, uiY + 113, WIDTH, colours.black);
+    this.surface.drawLineHoriz(uiX, uiY + 113, WIDTH, COLOURS.BLACK);
 
     this.surface.drawTabs(
         uiX,
@@ -96,7 +96,7 @@ function drawUiTabMagic(noMenus) {
                 uiX + 2,
                 uiY + 124,
                 1,
-                colours.yellow
+                COLOURS.YELLOW
             );
 
             this.surface.drawString(
@@ -104,7 +104,7 @@ function drawUiTabMagic(noMenus) {
                 uiX + 2,
                 uiY + 136,
                 0,
-                colours.white
+                COLOURS.WHITE
             );
 
             for (let i = 0; i < GameData.spellRunesRequired[spellIndex]; i++) {
@@ -127,7 +127,7 @@ function drawUiTabMagic(noMenus) {
                     uiX + 2 + i * 44,
                     uiY + 150,
                     1,
-                    colours.white
+                    COLOURS.WHITE
                 );
             }
         } else {
@@ -136,7 +136,7 @@ function drawUiTabMagic(noMenus) {
                 uiX + 2,
                 uiY + 124,
                 1,
-                colours.black
+                COLOURS.BLACK
             );
         }
     } else if (this.uiTabMagicSubTab === 1) {
@@ -174,21 +174,21 @@ function drawUiTabMagic(noMenus) {
                 uiX + HALF_WIDTH,
                 uiY + 130,
                 1,
-                colours.yellow
+                COLOURS.YELLOW
             );
             this.surface.drawStringCenter(
                 GameData.prayerDescription[prayerIndex],
                 uiX + HALF_WIDTH,
                 uiY + 145,
                 0,
-                colours.white
+                COLOURS.WHITE
             );
             this.surface.drawStringCenter(
                 'Drain rate: ' + GameData.prayerDrain[prayerIndex],
                 uiX + HALF_WIDTH,
                 uiY + 160,
                 1,
-                colours.black
+                COLOURS.BLACK
             );
         } else {
             this.surface.drawString(
@@ -196,7 +196,7 @@ function drawUiTabMagic(noMenus) {
                 uiX + 2,
                 uiY + 124,
                 1,
-                colours.black
+                COLOURS.BLACK
             );
         }
     }

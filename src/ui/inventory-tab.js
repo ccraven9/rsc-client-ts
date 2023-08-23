@@ -1,5 +1,5 @@
 const GameData = require('../game-data');
-const colours = require('./_colours');
+import { COLOURS } from './colours';
 
 const MENU_WIDTH = 245;
 
@@ -39,7 +39,7 @@ function drawUiTabInventory(noMenus) {
                 slotY,
                 SLOT_WIDTH,
                 SLOT_HEIGHT,
-                colours.red,
+                COLOURS.RED,
                 128
             );
         } else {
@@ -48,7 +48,7 @@ function drawUiTabInventory(noMenus) {
                 slotY,
                 SLOT_WIDTH,
                 SLOT_HEIGHT,
-                colours.darkGrey,
+                COLOURS.DARKGREY,
                 128
             );
         }
@@ -77,7 +77,7 @@ function drawUiTabInventory(noMenus) {
                     slotX + 1,
                     slotY + 10,
                     1,
-                    colours.yellow
+                    COLOURS.YELLOW
                 );
             }
         }
@@ -89,7 +89,7 @@ function drawUiTabInventory(noMenus) {
             uiX + i * SLOT_WIDTH,
             uiY,
             ((this.inventoryMaxItemCount / 5) | 0) * SLOT_HEIGHT,
-            colours.black
+            COLOURS.BLACK
         );
     }
 
@@ -98,7 +98,7 @@ function drawUiTabInventory(noMenus) {
             uiX,
             uiY + i * SLOT_HEIGHT,
             245,
-            colours.black
+            COLOURS.BLACK
         );
     }
 

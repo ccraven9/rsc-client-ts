@@ -1,5 +1,5 @@
 const Scene = require('../scene');
-const colours = require('./_colours');
+import { COLOURS } from './colours'
 
 const MENU_WIDTH = 245;
 
@@ -88,7 +88,7 @@ function drawUiTabMinimap(noMenus) {
         this.drawMinimapEntity(
             uiX + HALF_WIDTH + objectX,
             uiY + HALF_HEIGHT - objectY,
-            colours.cyan
+            COLOURS.CYAN
         );
     }
 
@@ -119,7 +119,7 @@ function drawUiTabMinimap(noMenus) {
         this.drawMinimapEntity(
             uiX + HALF_WIDTH + itemX,
             uiY + HALF_HEIGHT - itemY,
-            colours.red
+            COLOURS.RED
         );
     }
 
@@ -142,7 +142,7 @@ function drawUiTabMinimap(noMenus) {
         this.drawMinimapEntity(
             uiX + HALF_WIDTH + npcX,
             uiY + HALF_HEIGHT - npcY,
-            colours.yellow
+            COLOURS.YELLOW
         );
     }
 
@@ -164,7 +164,7 @@ function drawUiTabMinimap(noMenus) {
         otherPlayerY = (otherPlayerY * cos - otherPlayerX * sin) >> 18;
         otherPlayerX = tempX;
 
-        let playerColour = colours.white;
+        let playerColour = COLOURS.WHITE;
 
         for (let j = 0; j < this.friendListCount; j++) {
             if (
@@ -174,7 +174,7 @@ function drawUiTabMinimap(noMenus) {
                 continue;
             }
 
-            playerColour = colours.green;
+            playerColour = COLOURS.GREEN;
             break;
         }
 
@@ -189,7 +189,7 @@ function drawUiTabMinimap(noMenus) {
         uiX + HALF_WIDTH,
         uiY + HALF_HEIGHT,
         2,
-        colours.white,
+        COLOURS.WHITE,
         255
     );
 

@@ -1,6 +1,7 @@
 const GameData = require('../game-data');
 const clientOpcodes = require('../opcodes/client');
-const colours = require('./_colours');
+import { COLOURS } from './colours';
+
 
 const DIALOG_X = 22;
 const DIALOG_Y = 36;
@@ -177,7 +178,7 @@ function drawDialogTrade() {
         DIALOG_Y + 12,
         468,
         18,
-        colours.grey,
+        COLOURS.GREY,
         160
     );
 
@@ -186,7 +187,7 @@ function drawDialogTrade() {
         DIALOG_Y + 30,
         8,
         248,
-        colours.grey,
+        COLOURS.GREY,
         160
     );
 
@@ -195,7 +196,7 @@ function drawDialogTrade() {
         DIALOG_Y + 30,
         11,
         248,
-        colours.grey,
+        COLOURS.GREY,
         160
     );
 
@@ -204,7 +205,7 @@ function drawDialogTrade() {
         DIALOG_Y + 30,
         6,
         248,
-        colours.grey,
+        COLOURS.GREY,
         160
     );
 
@@ -213,7 +214,7 @@ function drawDialogTrade() {
         DIALOG_Y + 133,
         197,
         22,
-        colours.grey,
+        COLOURS.GREY,
         160
     );
 
@@ -222,7 +223,7 @@ function drawDialogTrade() {
         DIALOG_Y + 258,
         197,
         20,
-        colours.grey,
+        COLOURS.GREY,
         160
     );
 
@@ -231,7 +232,7 @@ function drawDialogTrade() {
         DIALOG_Y + 235,
         246,
         43,
-        colours.grey,
+        COLOURS.GREY,
         160
     );
 
@@ -240,7 +241,7 @@ function drawDialogTrade() {
         DIALOG_Y + 30,
         197,
         103,
-        colours.lightGrey2,
+        COLOURS.LIGHTGREY2,
         160
     );
 
@@ -249,7 +250,7 @@ function drawDialogTrade() {
         DIALOG_Y + 155,
         197,
         103,
-        colours.lightGrey2,
+        COLOURS.LIGHTGREY2,
         160
     );
 
@@ -258,7 +259,7 @@ function drawDialogTrade() {
         DIALOG_Y + 30,
         246,
         205,
-        colours.lightGrey2,
+        COLOURS.LIGHTGREY2,
         160
     );
 
@@ -267,7 +268,7 @@ function drawDialogTrade() {
             DIALOG_X + 8,
             DIALOG_Y + 30 + i * 34,
             197,
-            colours.black
+            COLOURS.BLACK
         );
     }
 
@@ -276,7 +277,7 @@ function drawDialogTrade() {
             DIALOG_X + 8,
             DIALOG_Y + 155 + i * 34,
             197,
-            colours.black
+            COLOURS.BLACK
         );
     }
 
@@ -285,7 +286,7 @@ function drawDialogTrade() {
             DIALOG_X + 216,
             DIALOG_Y + 30 + i * 34,
             246,
-            colours.black
+            COLOURS.BLACK
         );
     }
 
@@ -295,13 +296,13 @@ function drawDialogTrade() {
                 DIALOG_X + 8 + i * 49,
                 DIALOG_Y + 30,
                 103,
-                colours.black
+                COLOURS.BLACK
             );
             this.surface.drawLineVert(
                 DIALOG_X + 8 + i * 49,
                 DIALOG_Y + 155,
                 103,
-                colours.black
+                COLOURS.BLACK
             );
         }
 
@@ -309,7 +310,7 @@ function drawDialogTrade() {
             DIALOG_X + 216 + i * 49,
             DIALOG_Y + 30,
             205,
-            colours.black
+            COLOURS.BLACK
         );
     }
 
@@ -318,7 +319,7 @@ function drawDialogTrade() {
         DIALOG_X + 1,
         DIALOG_Y + 10,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     this.surface.drawString(
@@ -326,7 +327,7 @@ function drawDialogTrade() {
         DIALOG_X + 9,
         DIALOG_Y + 27,
         4,
-        colours.white
+        COLOURS.WHITE
     );
 
     this.surface.drawString(
@@ -334,7 +335,7 @@ function drawDialogTrade() {
         DIALOG_X + 9,
         DIALOG_Y + 152,
         4,
-        colours.white
+        COLOURS.WHITE
     );
 
     this.surface.drawString(
@@ -342,7 +343,7 @@ function drawDialogTrade() {
         DIALOG_X + 216,
         DIALOG_Y + 27,
         4,
-        colours.white
+        COLOURS.WHITE
     );
 
     if (!this.tradeAccepted) {
@@ -365,7 +366,7 @@ function drawDialogTrade() {
             DIALOG_X + 341,
             DIALOG_Y + 246,
             1,
-            colours.white
+            COLOURS.WHITE
         );
 
         this.surface.drawStringCenter(
@@ -373,7 +374,7 @@ function drawDialogTrade() {
             DIALOG_X + 341,
             DIALOG_Y + 256,
             1,
-            colours.white
+            COLOURS.WHITE
         );
     }
 
@@ -383,7 +384,7 @@ function drawDialogTrade() {
             DIALOG_X + 217 + 35,
             DIALOG_Y + 246,
             1,
-            colours.white
+            COLOURS.WHITE
         );
 
         this.surface.drawStringCenter(
@@ -391,7 +392,7 @@ function drawDialogTrade() {
             DIALOG_X + 217 + 35,
             DIALOG_Y + 256,
             1,
-            colours.white
+            COLOURS.WHITE
         );
     }
 
@@ -417,7 +418,7 @@ function drawDialogTrade() {
                 slotX + 1,
                 slotY + 10,
                 1,
-                colours.yellow
+                COLOURS.YELLOW
             );
         }
     }
@@ -444,7 +445,7 @@ function drawDialogTrade() {
                 slotX + 1,
                 slotY + 10,
                 1,
-                colours.yellow
+                COLOURS.YELLOW
             );
         }
 
@@ -460,7 +461,7 @@ function drawDialogTrade() {
                 DIALOG_X + 8,
                 DIALOG_Y + 273,
                 1,
-                colours.yellow
+                COLOURS.YELLOW
             );
         }
     }
@@ -487,7 +488,7 @@ function drawDialogTrade() {
                 slotX + 1,
                 slotY + 10,
                 1,
-                colours.yellow
+                COLOURS.YELLOW
             );
         }
 
@@ -504,7 +505,7 @@ function drawDialogTrade() {
                 DIALOG_X + 8,
                 DIALOG_Y + 273,
                 1,
-                colours.yellow
+                COLOURS.YELLOW
             );
         }
     }
