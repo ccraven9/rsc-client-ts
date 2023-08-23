@@ -1,5 +1,4 @@
 const clientOpcodes = require('../opcodes/client');
-// const colours = require('./_colours');
 import { COLOURS } from './colours'; 
 
 

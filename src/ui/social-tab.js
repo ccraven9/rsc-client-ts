@@ -1,5 +1,4 @@
 const Utility = require('../utility');
-// const colours = require('./_colours');
 import { COLOURS } from './colours';
 
 const MENU_WIDTH = 245;

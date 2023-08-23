@@ -1,6 +1,5 @@
 const GameData = require('../game-data');
 const clientOpcodes = require('../opcodes/client');
-// const colours = require('./_colours');
 import { COLOURS } from './colours'; 
 
 const MENU_WIDTH = 245;

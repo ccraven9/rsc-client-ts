@@ -3,7 +3,6 @@
 const ChatMessage = require('../chat-message');
 const Utility = require('../utility');
 const WordFilter = require('../word-filter');
-// const colours = require('./_colours');
 import { COLOURS } from './colours'; 
 
 

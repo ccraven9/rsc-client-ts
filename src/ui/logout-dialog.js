@@ -1,4 +1,3 @@
-// const colours = require('./_colours');
 import { COLOURS } from './colours';
 
 function drawDialogLogout() {
