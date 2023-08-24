@@ -1,5 +1,9 @@
 // shims https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics.html
 
+/**
+ * Draws graphics using an HTMLCanvasElement
+ * @throws {Error} If the CanvasRenderingContext2D is undefiend or null.
+ */
 export class Graphics {
     canvas: HTMLCanvasElement;
     ctx: CanvasRenderingContext2D;

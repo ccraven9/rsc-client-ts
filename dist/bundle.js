@@ -3076,20 +3076,22 @@ module.exports={
 
 },{}],14:[function(require,module,exports){
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FileDownloadStream = void 0;
 class FileDownloadStream {
     constructor(file) {
-        this.url = file;
         this.xhr = new XMLHttpRequest();
-        this.xhr.responseType = 'arraybuffer';
-        this.xhr.open('GET', file, true);
         this.buffer = null;
         this.pos = 0;
+        this.url = file.toString();
+        this.xhr.responseType = 'arraybuffer';
+        this.xhr.open('GET', this.url, true);
     }
-    _loadResBytes() {
+    loadResBytes() {
         return new Promise((resolve, reject) => {
             this.xhr.onerror = e => reject(e);
             this.xhr.onload = () => {
-                if (!/^2/.test(this.xhr.status)) {
+                if (!/^2/.test(String(this.xhr.status))) {
                     reject(new Error(`unable to download ${this.url}.
                         status code = ${this.xhr.status}`));
                 }
@@ -3100,18 +3102,15 @@ class FileDownloadStream {
             this.xhr.send();
         });
     }
-    async readFully(dest, off = 0, len) {
-        if (typeof len === 'undefined') {
-            len = dest.length;
-        }
+    async readFully(dest, off = 0, len = dest.length) {
         if (!this.buffer) {
-            this.buffer = await this._loadResBytes();
+            this.buffer = await this.loadResBytes();
         }
         dest.set(this.buffer.slice(this.pos, this.pos + len), off);
         this.pos += len;
     }
 }
-module.exports = FileDownloadStream;
+exports.FileDownloadStream = FileDownloadStream;
 
 },{}],15:[function(require,module,exports){
 (function (Buffer){(function (){
@@ -19307,8 +19306,9 @@ module.exports = {
 
 },{"./colours":58}],83:[function(require,module,exports){
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const file_download_stream_1 = require("./lib/net/file-download-stream");
 const BZLib = require('./bzlib');
-const FileDownloadStream = require('./lib/net/file-download-stream');
 const Long = require('long');
 const C_0 = '0'.charCodeAt(0);
 const C_9 = '9'.charCodeAt(0);
@@ -19318,7 +19318,7 @@ const C_BIG_Z = 'Z'.charCodeAt(0);
 const C_Z = 'z'.charCodeAt(0);
 class Utility {
     static openFile(s) {
-        return new FileDownloadStream(s);
+        return new file_download_stream_1.FileDownloadStream(s);
     }
     static getUnsignedByte(i) {
         return i & 0xff;
