@@ -3,7 +3,8 @@
 
 require('buffer');
 
-const WorkerSocket = require('./worker-socket');
+// const WorkerSocket = require('./worker-socket');
+import { WorkerSocket } from './worker-socket';
 
 const CLOSE_TIMEOUT = 5000;
 

@@ -240,8 +240,8 @@ class GameBuffer {
         this.buffer = buffer;
         this.offset = 0;
     }
-    putByte(i) {
-        this.buffer[this.offset++] = i;
+    putByte(byte) {
+        this.buffer[this.offset++] = byte;
     }
     putInt(i) {
         this.buffer[this.offset++] = i >> 24;
@@ -3117,8 +3117,9 @@ exports.FileDownloadStream = FileDownloadStream;
 },{}],15:[function(require,module,exports){
 (function (Buffer){(function (){
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 require('buffer');
-const WorkerSocket = require('./worker-socket');
+const worker_socket_1 = require("./worker-socket");
 const CLOSE_TIMEOUT = 5000;
 class Socket {
     constructor(host, port) {
@@ -3138,7 +3139,7 @@ class Socket {
                 this.client = new WebSocket(`ws://${this.host}:${this.port}`, 'binary');
             }
             else if (this.host.constructor.name === 'Worker') {
-                this.client = new WorkerSocket(this.host);
+                this.client = new worker_socket_1.WorkerSocket(this.host);
             }
             else if (this.host.constructor.name === 'Peer') {
                 const peer = this.host;
@@ -3151,7 +3152,7 @@ class Socket {
                         peer.send(JSON.stringify(data));
                     }
                 };
-                this.client = new WorkerSocket(worker);
+                this.client = new worker_socket_1.WorkerSocket(worker);
                 peer.on('data', (data) => {
                     data = JSON.parse(data);
                     if (data.type === 'data') {
@@ -3291,11 +3292,13 @@ module.exports = Socket;
 }).call(this)}).call(this,require("buffer").Buffer)
 },{"./worker-socket":16,"buffer":178}],16:[function(require,module,exports){
 "use strict";
-const { uid } = require('rand-token');
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.WorkerSocket = void 0;
+const rand_token_1 = require("rand-token");
 class WorkerSocket {
     constructor(worker) {
         this.worker = worker;
-        this.id = uid(64);
+        this.id = (0, rand_token_1.uid)(64);
         this.worker.onmessage = (e) => {
             if (e.data.id !== this.id) {
                 return;
@@ -3337,7 +3340,7 @@ class WorkerSocket {
         this.dispatchEvent('close');
     }
 }
-module.exports = WorkerSocket;
+exports.WorkerSocket = WorkerSocket;
 
 },{"rand-token":280}],17:[function(require,module,exports){
 "use strict";

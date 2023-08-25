@@ -1,7 +1,15 @@
-const { uid } = require('rand-token');
+import { uid } from 'rand-token';
 
-class WorkerSocket {
-    constructor(worker) {
+interface Handler {
+    [key: string]: (args: any) => void;
+}
+
+export class WorkerSocket {
+    worker: Worker
+    id: string;
+    handlers: Handler
+
+    constructor(worker: Worker) {
         this.worker = worker;
         this.id = uid(64);
 
@@ -25,7 +33,7 @@ class WorkerSocket {
         }, 1);
     }
 
-    send(data) {
+    send(data: any) {
         this.worker.postMessage({
             id: this.id,
             type: 'data',
@@ -33,7 +41,7 @@ class WorkerSocket {
         });
     }
 
-    dispatchEvent(name, args) {
+    dispatchEvent(name: string | number, args?: any) {
         const cb = this.handlers[name];
 
         if (cb) {
@@ -41,7 +49,7 @@ class WorkerSocket {
         }
     }
 
-    addEventListener(name, cb) {
+    addEventListener(name: string | number, cb: (args: any) => void) {
         this.handlers[name] = cb;
     }
 
@@ -54,5 +62,3 @@ class WorkerSocket {
         this.dispatchEvent('close');
     }
 }
-
-module.exports = WorkerSocket;
