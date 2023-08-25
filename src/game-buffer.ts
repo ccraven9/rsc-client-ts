@@ -1,3 +1,8 @@
+
+/**
+ * Utility class designed to handle manipulation and serialization of binary data in the form of bytes, integers, strings, and arrays. 
+ * It provides methods for writing various types of data into a pre-allocated Int8Array buffer and for reading data from that buffer.
+ */
 export class GameBuffer {
 
     buffer: Int8Array;
@@ -16,6 +21,10 @@ export class GameBuffer {
         this.buffer[this.offset++] = byte;
     }
 
+    /**
+     * 
+     * @param i - number
+     */
     putInt(i: number) {
         /**
          * The >> operator is a bitwise right shift operator. It shifts the bits of the number to the right by the specified number of positions.
@@ -28,6 +37,10 @@ export class GameBuffer {
         this.buffer[this.offset++] = i;
     }
 
+    /**
+     * 
+     * @param s - string
+     */
     putString(s: string) {
         for (let i = 0; i < s.length; i++) {
             this.buffer[this.offset++] = s.charCodeAt(i);
@@ -37,17 +50,31 @@ export class GameBuffer {
         this.buffer[this.offset++] = 10;
     }
 
+    /**
+     * 
+     * @param src - source
+     * @param srcPos - source position
+     * @param len - length
+     */
     putBytes(src: number[], srcPos: number, len: number) {
         for (let i = srcPos; i < len; i++) {
             this.buffer[this.offset++] = src[i];
         }
     }
 
-    getUnsignedByte() {
+    /**
+     * 
+     * @returns number
+     */
+    getUnsignedByte(): number {
         return this.buffer[this.offset++] & 0xff;
     }
 
-    getUnsignedShort() {
+    /**
+     * 
+     * @returns number
+     */
+    getUnsignedShort(): number {
         this.offset += 2;
 
         return (
@@ -56,7 +83,11 @@ export class GameBuffer {
         );
     }
 
-    getUnsignedInt() {
+    /**
+     * 
+     * @returns number
+     */
+    getUnsignedInt(): number {
         this.offset += 4;
 
         return (
