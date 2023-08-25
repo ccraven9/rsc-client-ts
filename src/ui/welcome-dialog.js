@@ -1,4 +1,5 @@
-const colours = require('./_colours');
+import { COLOURS } from './colours';
+
 
 const WIDTH = 400;
 
@@ -25,7 +26,7 @@ function drawDialogWelcome() {
         167 - ((height / 2) | 0),
         WIDTH,
         height,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += 20;
@@ -35,7 +36,7 @@ function drawDialogWelcome() {
         256,
         y,
         4,
-        colours.yellow
+        COLOURS.YELLOW
     );
 
     y += 30;
@@ -56,7 +57,7 @@ function drawDialogWelcome() {
             256,
             y,
             1,
-            colours.white
+            COLOURS.WHITE
         );
 
         y += 15;
@@ -72,7 +73,7 @@ function drawDialogWelcome() {
             256,
             y,
             1,
-            colours.white
+            COLOURS.WHITE
         );
 
         y += 15;
@@ -80,7 +81,7 @@ function drawDialogWelcome() {
     }
 
     if (this.welcomeUnreadMessages > 0) {
-        const textColour = colours.white;
+        const textColour = COLOURS.WHITE;
 
         this.surface.drawStringCenter(
             'Jagex staff will NEVER email you. We use the',
@@ -108,7 +109,7 @@ function drawDialogWelcome() {
                 256,
                 y,
                 1,
-                colours.white
+                COLOURS.WHITE
             );
         } else {
             this.surface.drawStringCenter(
@@ -118,7 +119,7 @@ function drawDialogWelcome() {
                 256,
                 y,
                 1,
-                colours.white
+                COLOURS.WHITE
             );
         }
 
@@ -133,7 +134,7 @@ function drawDialogWelcome() {
                 256,
                 y,
                 1,
-                colours.orange
+                COLOURS.ORANGE
             );
 
             y += 15;
@@ -143,7 +144,7 @@ function drawDialogWelcome() {
                 256,
                 y,
                 1,
-                colours.orange
+                COLOURS.ORANGE
             );
 
             y += 15;
@@ -154,7 +155,7 @@ function drawDialogWelcome() {
                 256,
                 y,
                 1,
-                colours.orange
+                COLOURS.ORANGE
             );
 
             y += 15;
@@ -174,7 +175,7 @@ function drawDialogWelcome() {
                 256,
                 y,
                 1,
-                colours.orange
+                COLOURS.ORANGE
             );
 
             y += 15;
@@ -185,7 +186,7 @@ function drawDialogWelcome() {
                 256,
                 y,
                 1,
-                colours.orange
+                COLOURS.ORANGE
             );
 
             y += 15;
@@ -196,7 +197,7 @@ function drawDialogWelcome() {
                 256,
                 y,
                 1,
-                colours.orange
+                COLOURS.ORANGE
             );
 
             y += 15;
@@ -205,7 +206,7 @@ function drawDialogWelcome() {
         y += 15;
     }
 
-    let textColour = colours.white;
+    let textColour = COLOURS.WHITE;
 
     if (
         this.mouseY > y - 12 &&
@@ -213,7 +214,7 @@ function drawDialogWelcome() {
         this.mouseX > 106 &&
         this.mouseX < 406
     ) {
-        textColour = colours.red;
+        textColour = COLOURS.RED;
     }
 
     this.surface.drawStringCenter(
@@ -225,7 +226,7 @@ function drawDialogWelcome() {
     );
 
     if (this.mouseButtonClick === 1) {
-        if (textColour === colours.red) {
+        if (textColour === COLOURS.RED) {
             this.showDialogWelcome = false;
         }
 

@@ -467,7 +467,7 @@ function renderLoginScreenViewports() {
         this.surface.drawLineAlpha(0, i, 0, i, this.gameWidth, 8);
     }
 
-    this.surface.drawBox(0, 194, 512, 20, 0);
+    this.surface.drawBox(0, 194, 1024, 20, 0); //512
 
     for (let i = 6; i >= 1; i--) {
         this.surface.drawLineAlpha(0, i, 0, 194 - i, this.gameWidth, 8);

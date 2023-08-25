@@ -1,11 +1,13 @@
-const Color = require('./lib/graphics/color');
-const Font = require('./lib/graphics/font');
 const GameShell = require('./game-shell');
 const Long = require('long');
 const PacketStream = require('./packet-stream');
 const Utility = require('./utility');
 const clientOpcodes = require('./opcodes/client');
 const sleep = require('sleep-promise');
+
+import { Font } from './lib/graphics/font';
+import { Color } from './lib/graphics/color';
+
 
 function fromCharArray(a) {
     return Array.from(a)
@@ -603,8 +605,8 @@ class GameConnection extends GameShell {
     drawTextBox(top, bottom) {
         const graphics = this.getGraphics();
         const font = new Font('Helvetica', 1, 15);
-        const width = 512;
-        const height = 344;
+        const width = 1024; //512 - 1024
+        const height = 688; //344 - 688
 
         graphics.setColor(Color.black);
 

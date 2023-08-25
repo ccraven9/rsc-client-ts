@@ -25,7 +25,7 @@ class GameModel {
         this.z2 = 0;
         this.key = -1;
         this.maxVerts = 0;
-        this.lightDiffuse = 512;
+        this.lightDiffuse = 1024;
         this.lightAmbience = 32;
         this.magic = 0;
         this.maxFaces = 0;

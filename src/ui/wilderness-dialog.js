@@ -1,17 +1,18 @@
-const colours = require('./_colours');
+import { COLOURS } from './colours';
+
 
 function drawDialogWildWarn() {
     let y = 97;
 
-    this.surface.drawBox(86, 77, 340, 180, colours.black);
-    this.surface.drawBoxEdge(86, 77, 340, 180, colours.white);
+    this.surface.drawBox(86, 77, 340, 180, COLOURS.BLACK);
+    this.surface.drawBoxEdge(86, 77, 340, 180, COLOURS.WHITE);
 
     this.surface.drawStringCenter(
         'Warning! Proceed with caution',
         256,
         y,
         4,
-        colours.red
+        COLOURS.RED
     );
 
     y += 26;
@@ -21,7 +22,7 @@ function drawDialogWildWarn() {
         256,
         y,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += 13;
@@ -31,7 +32,7 @@ function drawDialogWildWarn() {
         256,
         y,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += 13;
@@ -41,7 +42,7 @@ function drawDialogWildWarn() {
         256,
         y,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += 22;
@@ -51,7 +52,7 @@ function drawDialogWildWarn() {
         256,
         y,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += 13;
@@ -61,7 +62,7 @@ function drawDialogWildWarn() {
         256,
         y,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += 22;
@@ -71,7 +72,7 @@ function drawDialogWildWarn() {
         256,
         y,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += 13;
@@ -81,12 +82,12 @@ function drawDialogWildWarn() {
         256,
         y,
         1,
-        colours.white
+        COLOURS.WHITE
     );
 
     y += 22;
 
-    let textColour = colours.white;
+    let textColour = COLOURS.WHITE;
 
     if (
         this.mouseY > y - 12 &&
@@ -94,7 +95,7 @@ function drawDialogWildWarn() {
         this.mouseX > 181 &&
         this.mouseX < 331
     ) {
-        textColour = colours.red;
+        textColour = COLOURS.RED;
     }
 
     this.surface.drawStringCenter(

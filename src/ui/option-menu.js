@@ -1,5 +1,6 @@
 const clientOpcodes = require('../opcodes/client');
-const colours = require('./_colours');
+import { COLOURS } from './colours'; 
+
 
 function drawOptionMenu() {
     const fontSize = this.options.mobile ? 5 : 1;
@@ -41,7 +42,7 @@ function drawOptionMenu() {
     }
 
     for (let i = 0; i < this.optionMenuCount; i++) {
-        let textColour = colours.cyan;
+        let textColour = COLOURS.CYAN;
 
         if (
             !this.options.mobile &&
@@ -53,7 +54,7 @@ function drawOptionMenu() {
             this.mouseY > uiY + i * fontHeight &&
             this.mouseY < uiY + (i * fontHeight + fontHeight)
         ) {
-            textColour = colours.red;
+            textColour = COLOURS.RED;
         }
 
         this.surface.drawString(

@@ -1,9 +1,9 @@
 const ChatMessage = require('../chat-message');
 const Panel = require('../panel');
 const WordFilter = require('../word-filter');
-const colours = require('./_colours');
+import { COLOURS } from './colours';
 
-const HBAR_WIDTH = 512;
+const HBAR_WIDTH = 1; //512
 
 const ALL_MAX_LENGTH = 80;
 const HISTORY_MAX_ENTRIES = 20;
@@ -11,6 +11,7 @@ const HISTORY_MAX_ENTRIES = 20;
 function createMessageTabPanel() {
     this.panelMessageTabs = new Panel(this.surface, 10);
 
+    //Dialog Input Y value
     let y = 269;
 
     if (this.options.mobile) {
@@ -93,54 +94,54 @@ function drawChatMessageTabs() {
         y = this.gameHeight + 6;
     }
 
-    let textColour = colours.chatPurple;
+    let textColour = COLOURS.CHATPURPLE;
 
     if (this.messageTabSelected === 0) {
-        textColour = colours.chatOrange;
+        textColour = COLOURS.CHATORANGE;
     }
 
     if (this.messageTabFlashAll % 30 > 15) {
-        textColour = colours.chatRed;
+        textColour = COLOURS.CHATRED;
     }
 
     this.surface.drawStringCenter('All messages', x + 54, y, 0, textColour);
 
-    textColour = colours.chatPurple;
+    textColour = COLOURS.CHATPURPLE;
 
     if (this.messageTabSelected === 1) {
-        textColour = colours.chatOrange;
+        textColour = COLOURS.CHATORANGE;
     }
 
     if (this.messageTabFlashHistory % 30 > 15) {
-        textColour = colours.chatRed;
+        textColour = COLOURS.CHATRED;
     }
 
     this.surface.drawStringCenter('Chat history', x + 155, y, 0, textColour);
 
-    textColour = colours.chatPurple;
+    textColour = COLOURS.CHATPURPLE;
 
     if (this.messageTabSelected === 2) {
-        textColour = colours.chatOrange;
+        textColour = COLOURS.CHATORANGE;
     }
 
     if (this.messageTabFlashQuest % 30 > 15) {
-        textColour = colours.chatRed;
+        textColour = COLOURS.CHATRED;
     }
 
     this.surface.drawStringCenter('Quest history', x + 255, y, 0, textColour);
 
-    textColour = colours.chatPurple;
+    textColour = COLOURS.CHATPURPLE;
 
     if (this.messageTabSelected === 3) {
-        textColour = colours.chatOrange;
+        textColour = COLOURS.CHATORANGE;
     }
 
     if (this.messageTabFlashPrivate % 30 > 15) {
-        textColour = colours.chatRed;
+        textColour = COLOURS.CHATRED;
     }
 
     this.surface.drawStringCenter('Private history', x + 355, y, 0, textColour);
-    this.surface.drawStringCenter('Report abuse', x + 457, y, 0, colours.white);
+    this.surface.drawStringCenter('Report abuse', x + 457, y, 0, COLOURS.WHITE);
 }
 
 async function handleMesssageTabsInput() {
@@ -300,13 +301,13 @@ function drawChatMessageTabsPanel() {
                 7,
                 y - i * 12,
                 1,
-                colours.yellow
+                COLOURS.YELLOW
             );
         }
     }
 
     if (this.options.mobile && this.panelMessageTabs.focusControlIndex === -1) {
-        this.surface.drawString('[Tap here to chat]', 6, 88, 2, colours.white);
+        this.surface.drawString('[Tap here to chat]', 6, 88, 2, COLOURS.WHITE);
     }
 
     this.panelMessageTabs.hide(this.controlTextListChat);

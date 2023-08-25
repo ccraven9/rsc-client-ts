@@ -1,4 +1,9 @@
-class Scanline {
+export class Scanline {
+    startX: number;
+    endX: number;
+    startS: number;
+    endS: number;
+
     constructor() {
         this.startX = 0;
         this.endX = 0;
@@ -6,5 +11,3 @@ class Scanline {
         this.endS = 0;  
     }
 }
-
-module.exports = Scanline;

@@ -1,6 +1,4 @@
-const Color = require('./lib/graphics/color');
-const Font = require('./lib/graphics/font');
-const GameBuffer = require('./game-buffer');
+import { GameBuffer } from './game-buffer';
 const GameCharacter = require('./game-character');
 const GameConnection = require('./game-connection');
 const GameData = require('./game-data');
@@ -18,6 +16,10 @@ const getPacketHandlers = require('./packet-handlers');
 const keycodes = require('./lib/keycodes');
 const clientOpcodes = require('./opcodes/client');
 const version = require('./version');
+
+import { Font } from './lib/graphics/font';
+import { Color } from './lib/graphics/color';
+
 
 const ZOOM_MIN = 450;
 const ZOOM_MAX = 1250;
@@ -265,8 +267,8 @@ class mudclient extends GameConnection {
         this.magicLoc = 128;
         this.errorLoadingMemory = false;
         this.fogOfWar = false;
-        this.gameWidth = 512;
-        this.gameHeight = 334;
+        this.gameWidth = 1024; //512 - 1024
+        this.gameHeight = 668; //334 - 668
         this.tradeConfirmItems = new Int32Array(14);
         this.tradeConfirmItemCount = new Int32Array(14);
         this.tradeRecipientName = '';
@@ -1469,12 +1471,14 @@ class mudclient extends GameConnection {
             return;
         }
 
-        if (
-            this.mouseX < this.menuX - 10 ||
-            this.mouseY < this.menuY - 10 ||
-            this.mouseX > this.menuX + this.menuWidth + 10 ||
-            this.mouseY > this.menuY + this.menuHeight + 10
-        ) {
+        //Closes the menu if your cursor drifts 30pixels out of the menu
+        const menuDriftAmount = 30;
+        const outsideMenuX = this.mouseX < this.menuX - menuDriftAmount;
+        const outsideMenuY = this.mouseY < this.menuY - menuDriftAmount;
+        const outsideMenuWidth = this.mouseX > this.menuX + this.menuWidth + menuDriftAmount;
+        const outsideMenuHeight = this.mouseY > this.menuY + this.menuHeight + menuDriftAmount;
+        
+        if (outsideMenuX || outsideMenuY || outsideMenuWidth || outsideMenuHeight) {
             this.showRightClickMenu = false;
             return;
         }
@@ -3056,7 +3060,7 @@ class mudclient extends GameConnection {
             const g = this.getGraphics();
 
             g.setColor(Color.black);
-            g.fillRect(0, 0, 512, 356);
+            g.fillRect(0, 0, 1024, 356); //512
             g.setFont(new Font('Helvetica', 1, 16));
             g.setColor(Color.yellow);
 
@@ -3088,7 +3092,7 @@ class mudclient extends GameConnection {
             const g = this.getGraphics();
 
             g.setColor(Color.black);
-            g.fillRect(0, 0, 512, 356);
+            g.fillRect(0, 0, 1024, 356); //512
             g.setFont(new Font('Helvetica', 1, 20));
             g.setColor(Color.white);
             g.drawString('Error - unable to load game!', 50, 50);
@@ -3104,7 +3108,7 @@ class mudclient extends GameConnection {
             const g = this.getGraphics();
 
             g.setColor(Color.black);
-            g.fillRect(0, 0, 512, 356);
+            g.fillRect(0, 0, 1024, 356); //512
             g.setFont(new Font('Helvetica', 1, 20));
             g.setColor(Color.white);
             g.drawString('Error - out of memory!', 50, 50);
@@ -3635,13 +3639,15 @@ class mudclient extends GameConnection {
                     this.menuY = 0;
                 }
 
-                if (this.menuX + this.menuWidth > 510) {
-                    this.menuX = 510 - this.menuWidth;
-                }
+                // if (this.menuX + this.menuWidth > 510) {
+                    
+                //     this.menuX = 510 - this.menuWidth;
+                //     console.log('Logging MenuX', this.menuX);
+                // }
 
-                if (this.menuY + this.menuHeight > 315) {
-                    this.menuY = 315 - this.menuHeight;
-                }
+                // if (this.menuY + this.menuHeight > 315) {
+                //     this.menuY = 315 - this.menuHeight;
+                // }
 
                 this.mouseButtonClick = 0;
             }

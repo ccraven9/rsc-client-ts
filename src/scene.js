@@ -1,6 +1,6 @@
 const Long = require('long');
 const Polygon = require('./polygon');
-const Scanline = require('./scanline');
+import { Scanline } from './scanline';
 
 const COLOUR_TRANSPARENT = 12345678;
 
@@ -66,7 +66,7 @@ class Scene {
         this.mousePickedModels.length = this.mousePickedMax;
         this.mousePickedModels.fill(null);
         this.mousePickedFaces = new Int32Array(this.mousePickedMax);
-        this.width = 512;
+        this.width = 1024; //512
         this.clipX = 256;
         this.clipY = 192;
         this.baseX = 256;
