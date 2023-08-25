@@ -1,22 +1,34 @@
-class GameBuffer {
-    // buffer is an Int8Array
-    constructor(buffer) {
+export class GameBuffer {
+
+    buffer: Int8Array;
+    offset: number;
+
+    constructor(buffer: Int8Array) {
         this.buffer = buffer;
         this.offset = 0;
     }
 
-    putByte(i) {
-        this.buffer[this.offset++] = i;
+    /**
+     * Insert a byte value into the buffer at the current offset position.
+     * @param byte - Byte value to be inserted. 
+     */
+    putByte(byte: number) {
+        this.buffer[this.offset++] = byte;
     }
 
-    putInt(i) {
+    putInt(i: number) {
+        /**
+         * The >> operator is a bitwise right shift operator. It shifts the bits of the number to the right by the specified number of positions.
+         * The offset variable keeps track of the current position within the buffer where the next byte should be stored.
+         * After each byte is stored, the offset is incremented to ensure that subsequent bytes are placed in the correct positions.
+         */
         this.buffer[this.offset++] = i >> 24;
         this.buffer[this.offset++] = i >> 16;
         this.buffer[this.offset++] = i >> 8;
         this.buffer[this.offset++] = i;
     }
 
-    putString(s) {
+    putString(s: string) {
         for (let i = 0; i < s.length; i++) {
             this.buffer[this.offset++] = s.charCodeAt(i);
         }
@@ -25,7 +37,7 @@ class GameBuffer {
         this.buffer[this.offset++] = 10;
     }
 
-    putBytes(src, srcPos, len) {
+    putBytes(src: number[], srcPos: number, len: number) {
         for (let i = srcPos; i < len; i++) {
             this.buffer[this.offset++] = src[i];
         }
@@ -55,11 +67,9 @@ class GameBuffer {
         );
     }
 
-    getBytes(dest, destPos, len) {
+    getBytes(dest: Int8Array, destPos: number, len: number) {
         for (let i = destPos; i < len; i++) {
             dest[destPos + i] = this.buffer[this.offset++];
         }
     }
 }
-
-module.exports = GameBuffer;

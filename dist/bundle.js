@@ -233,6 +233,8 @@ module.exports = ChatMessage;
 
 },{}],4:[function(require,module,exports){
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GameBuffer = void 0;
 class GameBuffer {
     constructor(buffer) {
         this.buffer = buffer;
@@ -279,7 +281,7 @@ class GameBuffer {
         }
     }
 }
-module.exports = GameBuffer;
+exports.GameBuffer = GameBuffer;
 
 },{}],5:[function(require,module,exports){
 "use strict";
@@ -3340,7 +3342,7 @@ module.exports = WorkerSocket;
 },{"rand-token":280}],17:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const GameBuffer = require('./game-buffer');
+const game_buffer_1 = require("./game-buffer");
 const GameCharacter = require('./game-character');
 const GameConnection = require('./game-connection');
 const GameData = require('./game-data');
@@ -4779,10 +4781,10 @@ class mudclient extends GameConnection {
             this.errorLoadingData = true;
             return;
         }
-        const fragments = new GameBuffer(Utility.loadData('fragmentsenc.txt', 0, filterJag));
-        const badWords = new GameBuffer(Utility.loadData('badenc.txt', 0, filterJag));
-        const hosts = new GameBuffer(Utility.loadData('hostenc.txt', 0, filterJag));
-        const tlds = new GameBuffer(Utility.loadData('tldlist.txt', 0, filterJag));
+        const fragments = new game_buffer_1.GameBuffer(Utility.loadData('fragmentsenc.txt', 0, filterJag));
+        const badWords = new game_buffer_1.GameBuffer(Utility.loadData('badenc.txt', 0, filterJag));
+        const hosts = new game_buffer_1.GameBuffer(Utility.loadData('hostenc.txt', 0, filterJag));
+        const tlds = new game_buffer_1.GameBuffer(Utility.loadData('tldlist.txt', 0, filterJag));
         WordFilter.loadFilters(fragments, badWords, hosts, tlds);
     }
     addNpc(serverIndex, x, y, sprite, type) {
