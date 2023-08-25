@@ -1,4 +1,4 @@
-import { GameBuffer } from './game-buffer'
+import { GameBuffer } from './game-buffer';
 const GameCharacter = require('./game-character');
 const GameConnection = require('./game-connection');
 const GameData = require('./game-data');
