@@ -1,4 +1,4 @@
-const BZLib = require('./bzlib');
+import { BZLib } from './bzlib';
 const Socket = require('./lib/net/socket');
 const Surface = require('./surface');
 const TGA = require('tga-js');
