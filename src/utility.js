@@ -1,5 +1,5 @@
 import { FileDownloadStream } from './lib/net/file-download-stream';
-const BZLib = require('./bzlib');
+import { BZLib } from './bzlib';
 const Long = require('long');
 
 const C_0 = '0'.charCodeAt(0);

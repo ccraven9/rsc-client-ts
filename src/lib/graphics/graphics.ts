@@ -21,7 +21,7 @@ export class Graphics {
     * Specifies the color, gradient, or pattern to use for a cavnas shape fillStyle and strokeStyle.
     * @param  { function(string | CanvasGradient | CanvasPattern ):string } color - Color to be set.
     */
-    setColor(color: { toCanvasStyle: () => string | CanvasGradient | CanvasPattern; }) {
+    setColor(color: { toCanvasStyle: () => string | CanvasGradient | CanvasPattern; }): void {
         this.ctx.fillStyle = color.toCanvasStyle();
         this.ctx.strokeStyle = color.toCanvasStyle();
     }
@@ -35,7 +35,7 @@ export class Graphics {
     * @param  { number } width -  Rectangle width.
     * @param  { number } height - Rectangle Height.
     */
-    fillRect(x: number, y: number, width: number, height: number) {
+    fillRect(x: number, y: number, width: number, height: number): void {
         this.ctx.fillRect(x, y, width, height);
     }
 
@@ -46,7 +46,7 @@ export class Graphics {
     * @param  { number } width -  Rectangle width.
     * @param  { number } height - Rectangle Height.
     */
-    drawRect(x: number, y: number, width: number, height: number) {
+    drawRect(x: number, y: number, width: number, height: number): void {
         this.ctx.strokeRect(x, y, width, height);
     }
 
@@ -54,7 +54,7 @@ export class Graphics {
     * Specifies the current text style to use when drawing text.
     * @param  { number } x -  X coordinate.
     */
-    setFont(font: { toCanvasFont: () => string; }) {
+    setFont(font: { toCanvasFont: () => string; }): void {
         this.ctx.font = font.toCanvasFont();
     }
 
@@ -64,7 +64,7 @@ export class Graphics {
      * @param { number } x - The x-axis coordinate of the point at which to begin drawing the text, in pixels.
      * @param { number } y - The y-axis coordinate of the baseline on which to begin drawing the text, in pixels.
      */
-    drawString(s: string, x: number, y: number) {
+    drawString(s: string, x: number, y: number): void {
         this.ctx.fillText(s, x, y);
     }
 
@@ -83,7 +83,7 @@ export class Graphics {
      * @param x - Horizontal position (x coordinate) at which to place the image data in the destination canvas.
      * @param y - Vertical position (y coordinate) at which to place the image data in the destination canvas.
      */
-    drawImage(image: ImageData, x: number, y: number) {
+    drawImage(image: ImageData, x: number, y: number): void {
         this.ctx.putImageData(image, x, y);
     }
 
